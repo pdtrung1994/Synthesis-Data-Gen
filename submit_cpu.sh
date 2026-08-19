@@ -4,8 +4,7 @@
 #SBATCH --error=logs/slurm_%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=56
-#SBATCH --mem=64G
-#SBATCH --time=24:00:00
+#SBATCH --time=12:00:00
 #SBATCH --partition=prod
 
 # Create logs directory if it doesn't exist
