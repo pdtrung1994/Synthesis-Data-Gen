@@ -3,7 +3,7 @@
 #SBATCH --output=logs/slurm_%j.out
 #SBATCH --error=logs/slurm_%j.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=60
+#SBATCH --cpus-per-task=56
 #SBATCH --time=24:00:00
 #SBATCH --partition=prod
 
