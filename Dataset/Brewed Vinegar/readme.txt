@@ -1,0 +1,5 @@
+This dataset was collected using a custom-designed handheld electronic nose (e-nose) device equipped with eight MOS gas sensors. It includes six types of brewed vinegar, each bearing the title of "China Time-Honored Brand," specifically: Jiangsu Hengshun, Sichuan Baoning, Tianjin Tianli, Shanxi Laifu, Liaoning Gaoqiao, and Shanxi Donghu, which are labeled as JSHS, SCBN, TJTL, SXLF, LNGQ, and SXDH, respectively. 
+
+The data were recorded at a sampling rate of 20 samples per second via the 12-bit ADC on the ESP32-S3 microcontroller, capturing vinegar odor measurements consisting of 4500 data points per sensor across the eight-sensor array (MQ136, MQ9B, MQ7B, MQ2, MQ8, MQ138, MQ137, and MQ5). Each sensor is coupled with a 4.7 kΩ resistor to form a half-bridge circuit, with a reference voltage maintaining the circuit at 2.5 V. The dataset is organized into six folders—JSHS, SCBN, TJTL, SXLF, LNGQ, and SXDH—each containing 25 samples in Excel format, which reflect the characteristic response of the sensor array to the corresponding vinegar odor.
+
+For further information, kindly refer to our research article.
