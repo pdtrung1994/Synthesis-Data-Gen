@@ -4,6 +4,7 @@
 #SBATCH --error=logs/slurm_%j.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=56
+#SBATCH --mem=64G
 #SBATCH --time=24:00:00
 #SBATCH --partition=prod
 
@@ -15,8 +16,8 @@ echo "Starting job on $(hostname)"
 echo "CPUs allocated: $SLURM_CPUS_PER_TASK"
 echo "================================================="
 
-# Activate Conda environment
-source ~/.bashrc
+# Activate Conda environment safely in non-interactive script
+eval "$(conda shell.bash hook)"
 conda activate myenv
 
 # Run the python orchestrator
