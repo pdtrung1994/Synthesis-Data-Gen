@@ -21,7 +21,7 @@ conda activate myenv
 
 # Run the python orchestrator
 # The runner.py will automatically detect SLURM_CPUS_PER_TASK and optimize itself
-# test 
+# test github
 
 python Runners/runner.py
 
