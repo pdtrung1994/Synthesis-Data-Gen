@@ -10,11 +10,16 @@ Thay vì cài đặt thư viện lên OS hay sử dụng virtualenv/conda, chún
 File `myenvironment.recipe` đã có sẵn trong source code với các thư viện cần thiết.
 
 **Bước 2: Build Apptainer Image**
-Chạy lệnh sau trên HPC để build image:
+**Lưu ý quan trọng**: Do các cluster HPC thường dùng ổ đĩa mạng (NFS) với tính năng bảo mật chặn quyền ghi của root (`root_squash`), lệnh `sudo` không thể lưu file trực tiếp vào thư mục làm việc của bạn. Bạn cần build file vào thư mục tạm `/tmp` của máy chủ, sau đó copy về:
+
 ```bash
-sudo apptainer build myenvironment.simg myenvironment.recipe
+# 1. Build image và lưu tạm vào /tmp
+sudo apptainer build /tmp/myenvironment.simg myenvironment.recipe
+
+# 2. Copy file ảnh từ /tmp về thư mục hiện tại của bạn
+cp /tmp/myenvironment.simg ./myenvironment.simg
 ```
-*(File ảnh `myenvironment.simg` sẽ được tạo ra. Nếu cluster không có quyền sudo cho lệnh build, bạn có thể build trên máy tính cá nhân đã cài apptainer và copy file .simg lên HPC).*
+*(Nếu cluster không có quyền sudo, bạn có thể thử `apptainer build --fakeroot myenvironment.simg myenvironment.recipe`, hoặc build sẵn file `.simg` trên máy tính cá nhân rồi copy lên HPC).*
 
 Khi cần cài thêm thư viện, bạn hãy cập nhật file `myenvironment.recipe` (ở phần `%post`) và tiến hành build lại image.
 
@@ -42,10 +47,10 @@ Sau khi nộp, hệ thống sẽ trả về một `job_id` (ví dụ: `12345`).
   scancel 12345
   ```
 - **Xem log đầu ra:** 
-  Output của màn hình console sẽ được ghi trực tiếp vào file `logs/slurm_<job_id>.out`. 
+  Output của màn hình console sẽ được ghi trực tiếp vào file `slurm_<job_id>.out` tại thư mục bạn chạy lệnh. 
   Bạn có thể theo dõi trực tiếp bằng lệnh:
   ```bash
-  tail -f logs/slurm_12345.out
+  tail -f slurm_12345.out
   ```
 - Các log chi tiết của từng dataset/seed được `runner.py` tự động ghi vào thư mục `Runners/logs/`.
 
