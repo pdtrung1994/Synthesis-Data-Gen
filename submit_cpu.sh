@@ -15,15 +15,15 @@ echo "Starting job on $(hostname)"
 echo "CPUs allocated: $SLURM_CPUS_PER_TASK"
 echo "================================================="
 
-# Activate Conda environment safely in non-interactive script
-eval "$(conda shell.bash hook)"
-conda activate myenv
+# Update the codebase before running
+echo "Pulling latest changes from git..."
+git pull origin main
 
-# Run the python orchestrator
-# The runner.py will automatically detect SLURM_CPUS_PER_TASK and optimize itself
-# test github
+# Use Singularity/Apptainer container instead of conda/virtualenv
+CMD="singularity exec myenvironment.simg"
+SCRIPT="Runners/runner.py"
 
-python Runners/runner.py
+${CMD} python3 ${SCRIPT}
 
 echo "================================================="
 echo "Job completed."

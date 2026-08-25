@@ -3,23 +3,27 @@
 Tài liệu này hướng dẫn các bước để đưa mã nguồn lên và thực thi trên HPC Cluster.
 Mã nguồn đã được loại bỏ GPU và tối ưu hóa tối đa (chống oversubscription) cho việc chạy đa phân luồng trên CPU của SLURM.
 
-## 1. Môi trường Conda
-Môi trường ảo Python (`myenv`) đã được cài đặt thành công thông qua Miniconda.
-Bạn không cần phải build Apptainer/Singularity image nữa.
+## 1. Môi trường Container (Apptainer/Singularity)
+Thay vì cài đặt thư viện lên OS hay sử dụng virtualenv/conda, chúng ta sử dụng Apptainer (Singularity) container theo chuẩn của hệ thống HPC. 
 
-Khi cần cài thêm thư viện, bạn chỉ cần SSH vào HPC và gõ:
+**Bước 1: Khởi tạo file định nghĩa môi trường (`myenvironment.recipe`)**
+File `myenvironment.recipe` đã có sẵn trong source code với các thư viện cần thiết.
+
+**Bước 2: Build Apptainer Image**
+Chạy lệnh sau trên HPC để build image:
 ```bash
-source ~/.bashrc
-conda activate myenv
-pip install <tên_thư_viện>
+sudo apptainer build myenvironment.simg myenvironment.recipe
 ```
+*(File ảnh `myenvironment.simg` sẽ được tạo ra. Nếu cluster không có quyền sudo cho lệnh build, bạn có thể build trên máy tính cá nhân đã cài apptainer và copy file .simg lên HPC).*
+
+Khi cần cài thêm thư viện, bạn hãy cập nhật file `myenvironment.recipe` (ở phần `%post`) và tiến hành build lại image.
 
 ## 2. Nộp công việc (Submit Job) cho SLURM
-Chúng ta sử dụng file `submit_cpu.sh` để cấu hình số lượng core và yêu cầu SLURM cấp phát tài nguyên.
+Chúng ta sử dụng file `submit_cpu.sh` để cấu hình số lượng core và yêu cầu SLURM cấp phát tài nguyên. Kịch bản chạy đã được cập nhật để sử dụng Singularity/Apptainer.
 
 Bạn có thể chỉnh sửa file `submit_cpu.sh`:
-- `--cpus-per-task=64`: Thay đổi con số `64` thành số lõi CPU bạn muốn dùng. Code Python (`runner.py`) sẽ **tự động phát hiện con số này** để tạo đúng bấy nhiêu luồng xử lý song song.
-- `--time=24:00:00`: Giới hạn thời gian chạy tối đa.
+- `--cpus-per-task=56`: Thay đổi con số `56` thành số lõi CPU bạn muốn dùng. Code Python (`runner.py`) sẽ **tự động phát hiện con số này** để tạo đúng bấy nhiêu luồng xử lý song song.
+- `--time=12:00:00`: Giới hạn thời gian chạy tối đa.
 
 Gửi job vào hàng đợi bằng lệnh:
 ```bash
