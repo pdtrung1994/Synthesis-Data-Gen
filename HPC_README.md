@@ -23,38 +23,40 @@ cp /tmp/myenvironment.simg ./myenvironment.simg
 
 Khi cần cài thêm thư viện, bạn hãy cập nhật file `myenvironment.recipe` (ở phần `%post`) và tiến hành build lại image.
 
-## 2. Nộp công việc (Submit Job) cho SLURM
-Chúng ta sử dụng file `submit_cpu.sh` để cấu hình số lượng core và yêu cầu SLURM cấp phát tài nguyên. Kịch bản chạy đã được cập nhật để sử dụng Singularity/Apptainer.
+## 2. Nộp công việc (Submit Job) cho SLURM (Job Array)
+Hệ thống nay đã được cấu hình dùng **SLURM Job Array** (`--array=0-4`). Điều này cho phép bạn **chỉ cần chạy một lệnh submit duy nhất, nhưng HPC sẽ chia thành 5 job riêng biệt**, mỗi job chạy song song cho một dataset khác nhau (Plant_oil, Brewed_vinegar, Wine_spoilage, Chinese_wine, Coffee) giúp hoàn thành nhanh hơn gấp 5 lần so với chạy nối tiếp.
 
 Bạn có thể chỉnh sửa file `submit_cpu.sh`:
-- `--cpus-per-task=56`: Thay đổi con số `56` thành số lõi CPU bạn muốn dùng. Code Python (`runner.py`) sẽ **tự động phát hiện con số này** để tạo đúng bấy nhiêu luồng xử lý song song.
+- `--array=0-4`: Đang thiết lập 5 job (từ index 0 đến 4).
+- `--cpus-per-task=56`: Thay đổi con số `56` thành số lõi CPU bạn muốn dùng cho *mỗi job*. 
 - `--time=12:00:00`: Giới hạn thời gian chạy tối đa.
 
-Gửi job vào hàng đợi bằng lệnh:
+Gửi các job vào hàng đợi bằng lệnh:
 ```bash
 sbatch submit_cpu.sh
 ```
 
 ## 3. Quản lý và theo dõi quá trình chạy
-Sau khi nộp, hệ thống sẽ trả về một `job_id` (ví dụ: `12345`).
+Sau khi nộp, hệ thống sẽ trả về một `job_id` (ví dụ: `12345`). Do dùng Array, các job con sẽ có dạng `<job_id>_<task_id>` (ví dụ: `12345_0`, `12345_1`, v.v...).
 
 - **Xem danh sách job đang chờ / chạy:**
   ```bash
   squeue -u <username>
   ```
-- **Hủy job nếu chạy lỗi hoặc muốn dừng:**
+- **Hủy toàn bộ mảng job hoặc một job cụ thể:**
   ```bash
-  scancel 12345
+  scancel 12345      # Hủy tất cả 5 job thuộc mảng này
+  scancel 12345_2    # Hủy riêng job có index 2
   ```
-- **Xem log đầu ra:** 
-  Output của màn hình console sẽ được ghi trực tiếp vào file `slurm_<job_id>.out` tại thư mục bạn chạy lệnh. 
-  Bạn có thể theo dõi trực tiếp bằng lệnh:
+- **Xem log đầu ra của từng dataset:** 
+  Output của màn hình console sẽ được ghi thành 5 file riêng biệt `slurm_<job_id>_<task_id>.out`.
+  Bạn có thể theo dõi trực tiếp bằng lệnh (ví dụ với job 0):
   ```bash
-  tail -f slurm_12345.out
+  tail -f slurm_12345_0.out
   ```
 - Các log chi tiết của từng dataset/seed được `runner.py` tự động ghi vào thư mục `Runners/logs/`.
 
 ---
 
 **Lưu ý khi chạy trên máy cá nhân:**
-File `runner.py` đã được lập trình thông minh. Nếu bạn chạy lệnh `python Runners/runner.py` trên máy bàn (không thông qua `sbatch`), code sẽ tự động nhận diện không có HPC, chuyển về cơ chế chạy đa luồng cũ (N_JOBS=-1) và không bị giới hạn 1 core mỗi tiến trình như HPC. File `runner.ipynb` cũng không bị ảnh hưởng.
+File `runner.py` đã được lập trình thông minh. Nếu bạn chạy lệnh `python Runners/runner.py` trên máy bàn (không thông qua `sbatch`), code sẽ tự động nhận diện không có HPC, chuyển về cơ chế chạy đa luồng cũ (N_JOBS=-1) và không bị giới hạn 1 core mỗi tiến trình như HPC. Bạn cũng có thể test việc chạy riêng 1 database (ví dụ: `python Runners/runner.py --datasets Plant_oil`). File `runner.ipynb` cũng không bị ảnh hưởng.
