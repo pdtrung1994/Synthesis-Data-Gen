@@ -6,7 +6,7 @@
 #SBATCH --cpus-per-task=56
 #SBATCH --time=24:00:00
 #SBATCH --partition=prod
-#SBATCH --array=0-9
+#SBATCH --array=0-8
 
 # Mảng chứa danh sách 5 databases
 DATASETS=("Plant_oil" "Brewed_vinegar" "Wine_spoilage" "Chinese_wine" "Coffee")
@@ -15,14 +15,18 @@ DATASETS=("Plant_oil" "Brewed_vinegar" "Wine_spoilage" "Chinese_wine" "Coffee")
 # Nếu chạy không qua sbatch (không có SLURM_ARRAY_TASK_ID), mặc định lấy index 0
 TASK_ID=${SLURM_ARRAY_TASK_ID:-0}
 
-DATASET_INDEX=$((TASK_ID % 5))
-SEED_GROUP=$((TASK_ID / 5))
-
-CURRENT_DATASET=${DATASETS[$DATASET_INDEX]}
-
-if [ $SEED_GROUP -eq 0 ]; then
-    SEEDS="1 2 5 10"
+if [ $TASK_ID -le 4 ]; then
+    CURRENT_DATASET=${DATASETS[$TASK_ID]}
+    if [ "$CURRENT_DATASET" == "Coffee" ]; then
+        # Coffee khá nhỏ nên chạy gộp tất cả các seed vào chung 1 job (Task 4)
+        SEEDS="1 2 5 10 20"
+    else
+        SEEDS="1 2 5 10"
+    fi
 else
+    # Task 5 đến 8 tương ứng với Dataset 0 đến 3 (chỉ chạy seed 20)
+    DATASET_INDEX=$((TASK_ID - 5))
+    CURRENT_DATASET=${DATASETS[$DATASET_INDEX]}
     SEEDS="20"
 fi
 
