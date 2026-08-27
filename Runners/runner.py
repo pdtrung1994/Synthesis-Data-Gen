@@ -6,6 +6,9 @@ import argparse
 from tqdm import tqdm
 import multiprocessing
 
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from config import N_SPLITS
+
 # Configure paths
 EXPERIMENT_SCRIPT = os.path.join(os.path.dirname(__file__), '..', 'experiment.py')
 LOG_DIR = os.path.join(os.path.dirname(__file__), 'logs')
@@ -86,7 +89,7 @@ if __name__ == "__main__":
                         
     args = parser.parse_args()
     
-    n_splits = 10
+    n_splits = N_SPLITS
     total_folds = len(args.datasets) * len(args.seeds) * n_splits
     pbar = tqdm(total=total_folds, desc="Total Folds Progress")
     
