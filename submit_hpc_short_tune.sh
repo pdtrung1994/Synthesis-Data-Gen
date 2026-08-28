@@ -72,9 +72,9 @@ git pull origin main
 
 # Use Singularity/Apptainer container instead of conda/virtualenv
 CMD="singularity exec myenvironment.simg"
-SCRIPT="Runners/runner.py"
+SCRIPT="Runners/runner_hpc_short_tune.py"
 
-${CMD} python3 ${SCRIPT} --datasets "$CURRENT_DATASET" --seeds $SEEDS
+${CMD} python Runners/runner_hpc_short_tune.py --datasets $CURRENT_DATASET --seeds $SEEDS
 
 echo "================================================="
 echo "Job completed."

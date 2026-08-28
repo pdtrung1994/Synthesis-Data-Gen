@@ -211,3 +211,46 @@ def tune_hyperparameters(model, param_dist, X_train, y_train, groups=None, n_ite
     else:
         search.fit(X_train, y_train)
     return search.best_estimator_, search.best_params_
+
+def tune_hyperparameters_custom_val(model, param_dist, X_train, y_train, X_val, y_val, n_iter=100):
+    """
+    Perform HalvingRandomSearchCV with a PredefinedSplit to strictly train on X_train and validate on X_val.
+    """
+    from sklearn.model_selection import PredefinedSplit
+    
+    # Combine data
+    X_combined = np.vstack((X_train, X_val))
+    y_combined = np.hstack((y_train, y_val))
+    
+    # test_fold: -1 means train only, 0 means test (validation) only
+    test_fold = np.concatenate([
+        np.full(len(X_train), -1),
+        np.zeros(len(X_val))
+    ])
+    
+    ps = PredefinedSplit(test_fold)
+    
+    search = HalvingRandomSearchCV(
+        estimator=model,
+        param_distributions=param_dist,
+        n_candidates=n_iter,
+        cv=ps,
+        scoring='accuracy',
+        n_jobs=N_JOBS,
+        random_state=RANDOM_STATE,
+        verbose=1
+    )
+    
+    try:
+        if isinstance(param_dist, list):
+            total_combinations = sum([np.prod([len(v) for v in p.values()]) for p in param_dist])
+        else:
+            total_combinations = np.prod([len(v) for v in param_dist.values()])
+            
+        if total_combinations < n_iter:
+            search.n_candidates = int(total_combinations)
+    except:
+        pass
+        
+    search.fit(X_combined, y_combined)
+    return search.best_estimator_, search.best_params_
