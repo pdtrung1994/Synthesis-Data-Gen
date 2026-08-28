@@ -24,20 +24,26 @@ cp /tmp/myenvironment.simg ./myenvironment.simg
 Khi cần cài thêm thư viện, bạn hãy cập nhật file `myenvironment.recipe` (ở phần `%post`) và tiến hành build lại image.
 
 ## 2. Nộp công việc (Submit Job) cho SLURM (Job Array)
-Hệ thống nay đã được cấu hình dùng **SLURM Job Array** (`--array=0-8`). Điều này cho phép bạn **chỉ cần chạy một lệnh submit duy nhất, nhưng HPC sẽ chia thành nhiều job riêng biệt**, mỗi job chạy song song cho một cấu hình (Dataset/Seed) khác nhau giúp hoàn thành siêu nhanh.
+Hệ thống hiện được chia thành 2 phiên bản độc lập tùy theo mục đích chạy của bạn: **Short Tune** và **Full Tune**. Cả hai đều hỗ trợ **SLURM Job Array** giúp chia nhỏ job để chạy song song siêu nhanh.
 
-**Cách chạy mới:**
-Bạn KHÔNG DÙNG lệnh `sbatch` trực tiếp nữa, thay vào đó hãy chạy script như một file bash thông thường:
+**Cách chạy:** Bạn KHÔNG DÙNG lệnh `sbatch` trực tiếp, thay vào đó hãy chạy script như một file bash thông thường:
+
+### Lựa chọn 1: Chạy Short Tune (Chạy bản nháp - Cực nhanh)
+Mỗi Array Job chiếm trọn 1 Node (56 CPUs) và chạy song song tất cả các nếp gấp (folds). Thời gian chạy thường dưới 2-3 tiếng.
 ```bash
-bash submit_cpu.sh
+bash submit_hpc_short_tune.sh
 ```
 
-**Kịch bản tự động:** Khi bạn chạy lệnh trên, script sẽ:
-1. Tự động kiểm tra để tìm số thứ tự lượt chạy tiếp theo (ví dụ: `run_01`).
-2. Tự động tạo cùng lúc 2 thư mục đồng bộ: `logs/run_01` (để chứa toàn bộ file màn hình in ra) và `Results/run_01` (để chứa toàn bộ file CSV kết quả).
-3. Đẩy tác vụ cho Slurm chạy nền.
+### Lựa chọn 2: Chạy Full Tune (Chạy bản xịn - Dành cho Bài Báo Khoa Học)
+Chia nhỏ thành ~135 Array Jobs siêu gọn, mỗi job chỉ xin 8 CPUs. Tuning siêu chuẩn theo phương pháp Validation trên dữ liệu thực để không bị Overfitting. 
+```bash
+bash submit_hpc_full_tune.sh
+```
 
-Bạn có thể chỉnh sửa file `submit_cpu.sh` để thay đổi `--cpus-per-task` (số core cho 1 job) hoặc `--time`.
+**Kịch bản tự động:** Khi bạn chạy bất kỳ lệnh nào ở trên, script sẽ:
+1. Tự động kiểm tra và tạo thư mục chạy tiếp theo (ví dụ: `run_01` hoặc `full_tune`).
+2. Đồng bộ tự động 2 thư mục: `logs/` (để chứa log in ra màn hình) và `Results/` (chứa file CSV kết quả).
+3. Đẩy Array Job lên Slurm nền.
 
 ## 3. Quản lý và theo dõi quá trình chạy
 Sau khi nộp, hệ thống sẽ trả về một `job_id` (ví dụ: `12345`). Do dùng Array, các job con sẽ có dạng `<job_id>_<task_id>` (ví dụ: `12345_0`, `12345_1`, v.v...).
@@ -61,7 +67,7 @@ Sau khi nộp, hệ thống sẽ trả về một `job_id` (ví dụ: `12345`). 
 ---
 
 **Lưu ý khi chạy trên máy cá nhân:**
-File `runner.py` đã được lập trình thông minh. Nếu bạn chạy lệnh `python Runners/runner.py` trên máy bàn (không thông qua `sbatch`), code sẽ tự động nhận diện không có HPC, chuyển về cơ chế chạy đa luồng cũ (N_JOBS=-1) và không bị giới hạn 1 core mỗi tiến trình như HPC. Bạn cũng có thể test việc chạy riêng 1 database (ví dụ: `python Runners/runner.py --datasets Plant_oil`). File `runner.ipynb` cũng không bị ảnh hưởng.
+Các file `Runners/runner_hpc_short_tune.py` và `Runners/runner_full_tune.py` đã được lập trình thông minh. Nếu bạn chạy trên máy bàn (không thông qua `sbatch`), code sẽ tự động nhận diện không có hệ thống HPC và tự động chuyển về cơ chế chạy đa luồng (`N_JOBS=-1`), tối ưu hóa toàn bộ số cores có sẵn trên máy bàn của bạn thay vì giới hạn tài nguyên như trên Slurm.
 
 ---
 
