@@ -1,0 +1,2061 @@
+Starting Chinese_wine - Seed 2 - Fold 3
+
+
+==================================================
+Running experiment for Chinese_wine
+==================================================
+
+--- Fold 3/10 ---
+
+  >> Seed sets per label: 2
+
+    >> Seed Fold Selection: 1/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6772, F1: 0.6758, Time: 0.50s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6777, F1: 0.6770, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.5981, F1: 0.5896, Time: 1.05s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5960, F1: 0.5890, Time: 0.13s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6061, F1: 0.5830, Time: 0.03s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6179, F1: 0.6028, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6014, F1: 0.5848, Time: 0.14s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6199, F1: 0.6035, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.1444, F1: 0.0589, Time: 2.91s
+      -> [Tuned_Baseline] Acc: 0.1444, F1: 0.0589, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6783, F1: 0.6771, Time: 0.16s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6303, F1: 0.6249, Time: 1.23s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6209, F1: 0.6074, Time: 0.03s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6348, F1: 0.6250, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.2000, F1: 0.1064, Time: 0.25s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6794, F1: 0.6783, Time: 0.09s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6589, F1: 0.6529, Time: 1.70s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6178, F1: 0.6038, Time: 0.04s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6457, F1: 0.6347, Time: 0.37s
+      -> [RNN + Jittering @ 3x] Acc: 0.3778, F1: 0.2547, Time: 0.26s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6799, F1: 0.6790, Time: 0.11s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6559, F1: 0.6516, Time: 2.80s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6269, F1: 0.6150, Time: 0.15s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6406, F1: 0.6309, Time: 0.47s
+      -> [RNN + Jittering @ 5x] Acc: 0.3111, F1: 0.1730, Time: 0.73s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6808, F1: 0.6799, Time: 0.17s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6656, F1: 0.6624, Time: 5.83s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6248, F1: 0.6122, Time: 0.16s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6464, F1: 0.6371, Time: 0.59s
+      -> [RNN + Jittering @ 10x] Acc: 0.2889, F1: 0.1923, Time: 0.88s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6748, F1: 0.6729, Time: 0.08s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.6080, F1: 0.6017, Time: 1.14s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6076, F1: 0.5843, Time: 0.06s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6134, F1: 0.6053, Time: 0.27s
+      -> [RNN + Scaling @ 2x] Acc: 0.3556, F1: 0.2924, Time: 0.26s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6523, F1: 0.6500, Time: 0.09s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6070, F1: 0.5984, Time: 2.02s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6102, F1: 0.5947, Time: 0.07s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.5941, F1: 0.5789, Time: 0.30s
+      -> [RNN + Scaling @ 3x] Acc: 0.4222, F1: 0.3268, Time: 0.28s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6703, F1: 0.6676, Time: 0.18s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6308, F1: 0.6224, Time: 3.88s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6141, F1: 0.6005, Time: 0.14s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6032, F1: 0.5965, Time: 0.64s
+      -> [RNN + Scaling @ 5x] Acc: 0.3778, F1: 0.2452, Time: 0.58s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6460, F1: 0.6424, Time: 0.16s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6262, F1: 0.6195, Time: 6.83s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6117, F1: 0.5919, Time: 0.14s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6103, F1: 0.6017, Time: 0.56s
+      -> [RNN + Scaling @ 10x] Acc: 0.3667, F1: 0.2342, Time: 0.97s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6529, F1: 0.6497, Time: 0.08s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6369, F1: 0.6303, Time: 1.14s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5214, F1: 0.4944, Time: 0.06s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.5766, F1: 0.5588, Time: 0.21s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.3889, F1: 0.2669, Time: 0.25s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6500, F1: 0.6487, Time: 0.10s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6308, F1: 0.6271, Time: 3.24s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5438, F1: 0.5126, Time: 0.04s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5894, F1: 0.5741, Time: 0.19s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.2111, F1: 0.1440, Time: 0.71s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6420, F1: 0.6344, Time: 0.17s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6239, F1: 0.6142, Time: 4.58s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5112, F1: 0.4738, Time: 0.06s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5339, F1: 0.5128, Time: 0.49s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2889, F1: 0.1821, Time: 0.51s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6632, F1: 0.6656, Time: 0.17s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6283, F1: 0.6260, Time: 6.58s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5456, F1: 0.5101, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5673, F1: 0.5525, Time: 0.75s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4000, F1: 0.3015, Time: 1.73s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6404, F1: 0.6438, Time: 0.20s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5692, F1: 0.5608, Time: 1.47s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4628, F1: 0.4126, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4607, F1: 0.4517, Time: 0.14s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.3000, F1: 0.2137, Time: 0.52s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6288, F1: 0.6324, Time: 0.23s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5662, F1: 0.5531, Time: 2.00s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4301, F1: 0.3684, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4564, F1: 0.4411, Time: 0.06s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2444, F1: 0.1820, Time: 0.52s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6280, F1: 0.6279, Time: 0.16s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.5329, F1: 0.5242, Time: 2.89s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.3513, F1: 0.2521, Time: 0.05s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.3871, F1: 0.3520, Time: 0.17s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.1889, F1: 0.0812, Time: 0.54s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6062, F1: 0.6104, Time: 0.21s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5012, F1: 0.4924, Time: 6.13s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.3554, F1: 0.2646, Time: 0.21s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.3678, F1: 0.3413, Time: 0.32s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.2778, F1: 0.2242, Time: 1.01s
+
+    >> Seed Fold Selection: 2/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6600, F1: 0.6482, Time: 0.94s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6411, F1: 0.6312, Time: 0.08s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.5948, F1: 0.5795, Time: 0.69s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6014, F1: 0.5846, Time: 0.03s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6056, F1: 0.5812, Time: 0.03s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5827, F1: 0.5450, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6034, F1: 0.5878, Time: 0.13s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.5908, F1: 0.5734, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.1667, F1: 0.1362, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.1667, F1: 0.1362, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6543, F1: 0.6436, Time: 0.22s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6201, F1: 0.6057, Time: 0.67s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.5828, F1: 0.5448, Time: 0.09s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.5924, F1: 0.5736, Time: 0.28s
+      -> [RNN + Jittering @ 2x] Acc: 0.1222, F1: 0.0591, Time: 0.30s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6464, F1: 0.6351, Time: 0.12s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6279, F1: 0.6100, Time: 0.83s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.5827, F1: 0.5447, Time: 0.29s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.5953, F1: 0.5778, Time: 0.21s
+      -> [RNN + Jittering @ 3x] Acc: 0.1778, F1: 0.1323, Time: 0.27s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6436, F1: 0.6315, Time: 0.15s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6216, F1: 0.6063, Time: 1.81s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.5836, F1: 0.5458, Time: 0.24s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.5998, F1: 0.5817, Time: 0.59s
+      -> [RNN + Jittering @ 5x] Acc: 0.2667, F1: 0.1614, Time: 0.63s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6502, F1: 0.6376, Time: 0.31s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6313, F1: 0.6167, Time: 2.95s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.5813, F1: 0.5438, Time: 0.50s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.5988, F1: 0.5816, Time: 0.57s
+      -> [RNN + Jittering @ 10x] Acc: 0.3889, F1: 0.2672, Time: 1.13s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6234, F1: 0.6138, Time: 0.23s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.5964, F1: 0.5844, Time: 0.84s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.5707, F1: 0.5322, Time: 0.18s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.5640, F1: 0.5482, Time: 0.28s
+      -> [RNN + Scaling @ 2x] Acc: 0.2000, F1: 0.0786, Time: 0.52s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6419, F1: 0.6304, Time: 0.14s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6097, F1: 0.5936, Time: 0.79s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.5817, F1: 0.5483, Time: 0.26s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.5890, F1: 0.5787, Time: 0.37s
+      -> [RNN + Scaling @ 3x] Acc: 0.1889, F1: 0.1146, Time: 0.57s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6342, F1: 0.6224, Time: 0.26s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6147, F1: 0.6027, Time: 1.30s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.5676, F1: 0.5308, Time: 0.22s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.5807, F1: 0.5644, Time: 0.28s
+      -> [RNN + Scaling @ 5x] Acc: 0.4222, F1: 0.3074, Time: 0.49s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6394, F1: 0.6279, Time: 0.33s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6156, F1: 0.6051, Time: 3.52s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.5767, F1: 0.5395, Time: 0.95s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6026, F1: 0.5881, Time: 0.57s
+      -> [RNN + Scaling @ 10x] Acc: 0.3444, F1: 0.2515, Time: 1.13s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6443, F1: 0.6317, Time: 0.12s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6080, F1: 0.5948, Time: 0.57s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5697, F1: 0.5207, Time: 0.09s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6120, F1: 0.6025, Time: 0.14s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.2111, F1: 0.1247, Time: 0.25s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6413, F1: 0.6287, Time: 0.16s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6168, F1: 0.6061, Time: 1.03s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5350, F1: 0.5037, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5586, F1: 0.5263, Time: 0.31s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.2000, F1: 0.0727, Time: 0.48s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6506, F1: 0.6458, Time: 0.40s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6119, F1: 0.6064, Time: 1.39s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5418, F1: 0.4941, Time: 0.47s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5830, F1: 0.5636, Time: 0.50s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2556, F1: 0.1469, Time: 0.51s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6448, F1: 0.6333, Time: 0.61s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6136, F1: 0.6018, Time: 3.72s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.4968, F1: 0.4445, Time: 0.45s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5539, F1: 0.5316, Time: 0.57s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4778, F1: 0.3827, Time: 1.12s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6348, F1: 0.6255, Time: 0.15s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5836, F1: 0.5699, Time: 0.61s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4146, F1: 0.3373, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4761, F1: 0.4414, Time: 0.07s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1667, F1: 0.0612, Time: 0.25s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6389, F1: 0.6282, Time: 0.38s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5720, F1: 0.5612, Time: 0.98s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.3887, F1: 0.2894, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4264, F1: 0.3920, Time: 0.10s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2444, F1: 0.1832, Time: 0.40s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6273, F1: 0.6164, Time: 0.27s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.5417, F1: 0.5277, Time: 2.11s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.3747, F1: 0.2836, Time: 0.09s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4590, F1: 0.4297, Time: 0.07s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2111, F1: 0.1075, Time: 0.51s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6203, F1: 0.6082, Time: 0.36s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5219, F1: 0.5114, Time: 4.77s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.3477, F1: 0.2448, Time: 0.30s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4100, F1: 0.3662, Time: 0.29s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.3333, F1: 0.2441, Time: 1.20s
+
+    >> Seed Fold Selection: 3/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6850, F1: 0.6827, Time: 0.58s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6786, F1: 0.6757, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6353, F1: 0.6337, Time: 0.64s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6353, F1: 0.6337, Time: 0.06s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6481, F1: 0.6365, Time: 0.02s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6412, F1: 0.6284, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6448, F1: 0.6322, Time: 0.09s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6621, F1: 0.6555, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.2778, F1: 0.2021, Time: 0.30s
+      -> [Tuned_Baseline] Acc: 0.2778, F1: 0.2021, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6870, F1: 0.6847, Time: 0.18s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6541, F1: 0.6522, Time: 2.27s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6672, F1: 0.6549, Time: 0.06s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6647, F1: 0.6564, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.2000, F1: 0.1066, Time: 0.39s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6900, F1: 0.6876, Time: 0.10s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6489, F1: 0.6477, Time: 1.62s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6671, F1: 0.6536, Time: 0.04s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6592, F1: 0.6508, Time: 0.18s
+      -> [RNN + Jittering @ 3x] Acc: 0.2778, F1: 0.1646, Time: 0.54s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6958, F1: 0.6934, Time: 0.24s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6542, F1: 0.6517, Time: 2.93s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6731, F1: 0.6607, Time: 0.08s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6600, F1: 0.6514, Time: 0.27s
+      -> [RNN + Jittering @ 5x] Acc: 0.2111, F1: 0.1092, Time: 0.51s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6859, F1: 0.6839, Time: 0.30s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6571, F1: 0.6560, Time: 5.52s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6672, F1: 0.6548, Time: 0.16s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6641, F1: 0.6554, Time: 0.57s
+      -> [RNN + Jittering @ 10x] Acc: 0.4222, F1: 0.2937, Time: 0.91s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6626, F1: 0.6613, Time: 0.09s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.6299, F1: 0.6301, Time: 1.47s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6454, F1: 0.6297, Time: 0.06s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6242, F1: 0.6182, Time: 0.13s
+      -> [RNN + Scaling @ 2x] Acc: 0.2667, F1: 0.1451, Time: 0.31s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6564, F1: 0.6550, Time: 0.18s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6281, F1: 0.6271, Time: 2.56s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6272, F1: 0.6096, Time: 0.04s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.6120, F1: 0.5976, Time: 0.33s
+      -> [RNN + Scaling @ 3x] Acc: 0.3444, F1: 0.2471, Time: 0.26s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6553, F1: 0.6521, Time: 0.25s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6044, F1: 0.6042, Time: 3.24s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6120, F1: 0.5921, Time: 0.07s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6246, F1: 0.6091, Time: 0.28s
+      -> [RNN + Scaling @ 5x] Acc: 0.2000, F1: 0.0731, Time: 0.88s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6509, F1: 0.6470, Time: 0.17s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6346, F1: 0.6307, Time: 7.05s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6324, F1: 0.6142, Time: 0.28s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6516, F1: 0.6373, Time: 0.80s
+      -> [RNN + Scaling @ 10x] Acc: 0.4111, F1: 0.3110, Time: 1.54s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6694, F1: 0.6668, Time: 0.20s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6158, F1: 0.6143, Time: 1.30s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.6216, F1: 0.5992, Time: 0.03s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6426, F1: 0.6314, Time: 0.13s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.1111, F1: 0.0810, Time: 0.24s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6700, F1: 0.6668, Time: 0.14s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6550, F1: 0.6516, Time: 2.23s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5676, F1: 0.5273, Time: 0.04s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5903, F1: 0.5698, Time: 0.36s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.3778, F1: 0.2975, Time: 0.59s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6714, F1: 0.6661, Time: 0.27s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6267, F1: 0.6257, Time: 2.95s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5630, F1: 0.5297, Time: 0.06s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5761, F1: 0.5589, Time: 0.55s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2000, F1: 0.0729, Time: 1.05s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6594, F1: 0.6597, Time: 0.28s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6452, F1: 0.6467, Time: 6.13s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5734, F1: 0.5397, Time: 0.27s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.6101, F1: 0.5911, Time: 0.52s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4556, F1: 0.3210, Time: 1.86s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6716, F1: 0.6694, Time: 0.22s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.6048, F1: 0.6011, Time: 2.26s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4481, F1: 0.3793, Time: 0.02s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.5038, F1: 0.4837, Time: 0.18s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.2000, F1: 0.1030, Time: 0.52s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6768, F1: 0.6748, Time: 0.27s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5850, F1: 0.5879, Time: 1.77s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4412, F1: 0.3690, Time: 0.07s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4824, F1: 0.4648, Time: 0.10s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2667, F1: 0.1602, Time: 0.27s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6518, F1: 0.6502, Time: 0.17s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.5704, F1: 0.5693, Time: 3.82s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.3790, F1: 0.2964, Time: 0.11s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4006, F1: 0.3915, Time: 0.15s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.3889, F1: 0.2500, Time: 1.06s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6429, F1: 0.6418, Time: 0.22s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5533, F1: 0.5524, Time: 6.36s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.3936, F1: 0.3170, Time: 0.10s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4194, F1: 0.4015, Time: 0.13s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.3556, F1: 0.2864, Time: 0.89s
+
+    >> Seed Fold Selection: 4/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6021, F1: 0.6049, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6019, F1: 0.6050, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.5598, F1: 0.5604, Time: 0.63s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5598, F1: 0.5604, Time: 0.06s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6101, F1: 0.5837, Time: 0.02s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6126, F1: 0.6026, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.5722, F1: 0.5646, Time: 0.13s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6310, F1: 0.6180, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.1000, F1: 0.0207, Time: 0.27s
+      -> [Tuned_Baseline] Acc: 0.1000, F1: 0.0207, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6100, F1: 0.6113, Time: 0.16s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.5774, F1: 0.5775, Time: 1.73s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6168, F1: 0.6036, Time: 0.06s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6367, F1: 0.6236, Time: 0.28s
+      -> [RNN + Jittering @ 2x] Acc: 0.2667, F1: 0.2201, Time: 0.53s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6152, F1: 0.6154, Time: 0.17s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.5819, F1: 0.5817, Time: 1.78s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6210, F1: 0.6087, Time: 0.09s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6290, F1: 0.6164, Time: 0.40s
+      -> [RNN + Jittering @ 3x] Acc: 0.2111, F1: 0.1113, Time: 0.28s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6218, F1: 0.6218, Time: 0.11s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.5807, F1: 0.5827, Time: 3.84s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6161, F1: 0.6040, Time: 0.07s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6393, F1: 0.6260, Time: 0.28s
+      -> [RNN + Jittering @ 5x] Acc: 0.2667, F1: 0.1643, Time: 0.50s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6162, F1: 0.6163, Time: 0.14s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.5847, F1: 0.5853, Time: 5.41s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6166, F1: 0.6043, Time: 0.15s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6434, F1: 0.6306, Time: 0.59s
+      -> [RNN + Jittering @ 10x] Acc: 0.3444, F1: 0.2422, Time: 0.92s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6013, F1: 0.6046, Time: 0.08s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.5737, F1: 0.5736, Time: 1.06s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6004, F1: 0.5890, Time: 0.06s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.5971, F1: 0.5942, Time: 0.30s
+      -> [RNN + Scaling @ 2x] Acc: 0.2778, F1: 0.2075, Time: 0.53s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6074, F1: 0.6078, Time: 0.19s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.5670, F1: 0.5675, Time: 1.59s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.5923, F1: 0.5788, Time: 0.04s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.5562, F1: 0.5539, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.3000, F1: 0.1450, Time: 0.56s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6127, F1: 0.6159, Time: 0.23s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.5743, F1: 0.5745, Time: 2.85s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6080, F1: 0.5945, Time: 0.06s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.5782, F1: 0.5739, Time: 0.27s
+      -> [RNN + Scaling @ 5x] Acc: 0.2333, F1: 0.1186, Time: 0.51s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.5921, F1: 0.5918, Time: 0.32s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.5868, F1: 0.5858, Time: 6.58s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.5828, F1: 0.5634, Time: 0.26s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.5618, F1: 0.5555, Time: 0.65s
+      -> [RNN + Scaling @ 10x] Acc: 0.3444, F1: 0.2194, Time: 1.26s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.5913, F1: 0.5978, Time: 0.09s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.5480, F1: 0.5510, Time: 1.51s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5673, F1: 0.5437, Time: 0.05s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.5522, F1: 0.5474, Time: 0.29s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.1889, F1: 0.1098, Time: 0.54s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.5930, F1: 0.5945, Time: 0.10s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.5650, F1: 0.5600, Time: 2.10s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5623, F1: 0.5371, Time: 0.07s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5511, F1: 0.5484, Time: 0.38s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.2778, F1: 0.2080, Time: 0.41s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.5927, F1: 0.5951, Time: 0.13s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.5609, F1: 0.5603, Time: 3.85s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5624, F1: 0.5323, Time: 0.09s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5330, F1: 0.5306, Time: 0.46s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.3444, F1: 0.1985, Time: 0.83s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.5844, F1: 0.5886, Time: 0.36s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.5534, F1: 0.5548, Time: 6.03s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5602, F1: 0.5374, Time: 0.12s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5349, F1: 0.5341, Time: 1.19s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.3667, F1: 0.2773, Time: 1.87s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.5877, F1: 0.5917, Time: 0.09s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5542, F1: 0.5518, Time: 1.99s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4791, F1: 0.4323, Time: 0.05s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4999, F1: 0.4864, Time: 0.08s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1222, F1: 0.0600, Time: 0.49s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.5981, F1: 0.6013, Time: 0.12s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5449, F1: 0.5392, Time: 2.25s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4080, F1: 0.3422, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4424, F1: 0.4359, Time: 0.06s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.1111, F1: 0.0395, Time: 0.50s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.5893, F1: 0.5953, Time: 0.31s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.5389, F1: 0.5332, Time: 3.41s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4027, F1: 0.3443, Time: 0.10s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4048, F1: 0.4159, Time: 0.22s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2111, F1: 0.1104, Time: 1.05s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.5626, F1: 0.5692, Time: 0.20s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5366, F1: 0.5313, Time: 8.30s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.4256, F1: 0.3693, Time: 0.12s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4403, F1: 0.4316, Time: 0.34s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.3333, F1: 0.2527, Time: 0.96s
+
+    >> Seed Fold Selection: 5/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6816, F1: 0.6791, Time: 0.93s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6729, F1: 0.6695, Time: 0.07s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6573, F1: 0.6471, Time: 0.78s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5688, F1: 0.5538, Time: 0.02s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6673, F1: 0.6577, Time: 0.03s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6231, F1: 0.6085, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6673, F1: 0.6605, Time: 0.06s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6853, F1: 0.6805, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.2222, F1: 0.1226, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.2222, F1: 0.1226, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6809, F1: 0.6778, Time: 0.18s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.5863, F1: 0.5724, Time: 0.51s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6242, F1: 0.6099, Time: 0.09s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6947, F1: 0.6892, Time: 0.21s
+      -> [RNN + Jittering @ 2x] Acc: 0.1778, F1: 0.1082, Time: 0.27s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6920, F1: 0.6884, Time: 0.10s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6004, F1: 0.5874, Time: 1.11s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6230, F1: 0.6084, Time: 0.14s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6973, F1: 0.6928, Time: 0.18s
+      -> [RNN + Jittering @ 3x] Acc: 0.3111, F1: 0.2577, Time: 0.59s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6964, F1: 0.6929, Time: 0.25s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.5869, F1: 0.5746, Time: 1.22s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6242, F1: 0.6100, Time: 0.39s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6962, F1: 0.6904, Time: 0.60s
+      -> [RNN + Jittering @ 5x] Acc: 0.3000, F1: 0.1752, Time: 0.83s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6977, F1: 0.6928, Time: 0.16s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6033, F1: 0.5906, Time: 3.35s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6247, F1: 0.6108, Time: 0.92s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.7008, F1: 0.6953, Time: 0.57s
+      -> [RNN + Jittering @ 10x] Acc: 0.4556, F1: 0.3732, Time: 1.42s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6630, F1: 0.6619, Time: 0.19s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.5784, F1: 0.5628, Time: 0.52s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6126, F1: 0.5944, Time: 0.09s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6769, F1: 0.6712, Time: 0.14s
+      -> [RNN + Scaling @ 2x] Acc: 0.1556, F1: 0.0702, Time: 0.41s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6758, F1: 0.6719, Time: 0.20s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.5801, F1: 0.5664, Time: 1.11s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6310, F1: 0.6197, Time: 0.14s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.6881, F1: 0.6788, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.4000, F1: 0.3351, Time: 0.28s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6770, F1: 0.6727, Time: 0.12s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.5827, F1: 0.5690, Time: 1.10s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6191, F1: 0.6073, Time: 0.35s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6567, F1: 0.6496, Time: 0.48s
+      -> [RNN + Scaling @ 5x] Acc: 0.2111, F1: 0.0853, Time: 0.53s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6784, F1: 0.6764, Time: 0.17s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.5797, F1: 0.5634, Time: 2.16s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6234, F1: 0.6093, Time: 0.46s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6620, F1: 0.6529, Time: 0.78s
+      -> [RNN + Scaling @ 10x] Acc: 0.4222, F1: 0.2849, Time: 1.54s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6747, F1: 0.6706, Time: 0.10s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.5909, F1: 0.5840, Time: 0.55s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5758, F1: 0.5581, Time: 0.19s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6300, F1: 0.6213, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.1000, F1: 0.0205, Time: 0.49s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6373, F1: 0.6359, Time: 0.18s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.5880, F1: 0.5804, Time: 1.13s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5970, F1: 0.5848, Time: 0.28s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.6287, F1: 0.6226, Time: 0.26s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.3111, F1: 0.2402, Time: 0.34s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6818, F1: 0.6778, Time: 0.13s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.5897, F1: 0.5750, Time: 1.11s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5888, F1: 0.5633, Time: 0.22s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.6269, F1: 0.6256, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2222, F1: 0.0984, Time: 0.50s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6357, F1: 0.6322, Time: 0.38s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.5820, F1: 0.5644, Time: 2.27s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5714, F1: 0.5495, Time: 0.46s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5991, F1: 0.5916, Time: 1.18s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4111, F1: 0.2990, Time: 1.00s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6722, F1: 0.6690, Time: 0.21s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.4597, F1: 0.4543, Time: 0.90s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4427, F1: 0.3932, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.5241, F1: 0.5114, Time: 0.14s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1111, F1: 0.0407, Time: 0.54s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6710, F1: 0.6677, Time: 0.25s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.4713, F1: 0.4732, Time: 1.36s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4163, F1: 0.3655, Time: 0.12s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4422, F1: 0.4244, Time: 0.13s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2778, F1: 0.1443, Time: 0.36s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6543, F1: 0.6508, Time: 0.16s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.4718, F1: 0.4724, Time: 1.57s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4311, F1: 0.3619, Time: 0.16s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4354, F1: 0.4177, Time: 0.16s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2000, F1: 0.0667, Time: 0.59s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6614, F1: 0.6568, Time: 0.22s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.4572, F1: 0.4596, Time: 2.21s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.4031, F1: 0.3480, Time: 0.28s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4396, F1: 0.4285, Time: 0.29s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.2667, F1: 0.1850, Time: 1.44s
+
+    >> Seed Fold Selection: 6/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6176, F1: 0.6099, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6166, F1: 0.6073, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6091, F1: 0.6007, Time: 0.78s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6091, F1: 0.6007, Time: 0.06s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.5451, F1: 0.5273, Time: 0.03s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5210, F1: 0.4923, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.5697, F1: 0.5565, Time: 0.06s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.5762, F1: 0.5633, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.1333, F1: 0.0696, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.1333, F1: 0.0696, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6272, F1: 0.6193, Time: 0.08s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6034, F1: 0.5969, Time: 1.14s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.5219, F1: 0.4935, Time: 0.15s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.5806, F1: 0.5685, Time: 0.28s
+      -> [RNN + Jittering @ 2x] Acc: 0.1556, F1: 0.0947, Time: 0.42s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6290, F1: 0.6210, Time: 0.13s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6157, F1: 0.6076, Time: 1.66s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.5211, F1: 0.4925, Time: 0.14s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.5692, F1: 0.5550, Time: 0.19s
+      -> [RNN + Jittering @ 3x] Acc: 0.2000, F1: 0.1112, Time: 0.27s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6242, F1: 0.6160, Time: 0.12s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6148, F1: 0.6061, Time: 3.05s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.5224, F1: 0.4943, Time: 0.23s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.5700, F1: 0.5559, Time: 0.27s
+      -> [RNN + Jittering @ 5x] Acc: 0.2778, F1: 0.1376, Time: 0.90s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6258, F1: 0.6174, Time: 0.28s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6102, F1: 0.6040, Time: 7.07s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.5221, F1: 0.4942, Time: 0.98s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.5721, F1: 0.5592, Time: 1.19s
+      -> [RNN + Jittering @ 10x] Acc: 0.4111, F1: 0.2766, Time: 1.30s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6202, F1: 0.6116, Time: 0.09s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.6204, F1: 0.6118, Time: 1.39s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.5410, F1: 0.5198, Time: 0.10s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.5531, F1: 0.5403, Time: 0.16s
+      -> [RNN + Scaling @ 2x] Acc: 0.2222, F1: 0.1125, Time: 0.37s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6128, F1: 0.6059, Time: 0.16s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6207, F1: 0.6097, Time: 1.63s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.5373, F1: 0.5142, Time: 0.24s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.5571, F1: 0.5474, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.2444, F1: 0.1429, Time: 0.35s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6001, F1: 0.5914, Time: 0.24s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.5890, F1: 0.5858, Time: 2.83s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.5434, F1: 0.5221, Time: 0.47s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.5869, F1: 0.5765, Time: 0.55s
+      -> [RNN + Scaling @ 5x] Acc: 0.2667, F1: 0.1377, Time: 0.94s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6267, F1: 0.6154, Time: 0.16s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6008, F1: 0.5886, Time: 7.34s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.5212, F1: 0.4946, Time: 0.46s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.5617, F1: 0.5486, Time: 0.59s
+      -> [RNN + Scaling @ 10x] Acc: 0.3444, F1: 0.2443, Time: 0.92s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6128, F1: 0.6008, Time: 0.18s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.5742, F1: 0.5679, Time: 1.22s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5406, F1: 0.5173, Time: 0.18s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.5494, F1: 0.5337, Time: 0.29s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.2333, F1: 0.1150, Time: 0.55s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6072, F1: 0.5943, Time: 0.14s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.5892, F1: 0.5823, Time: 1.73s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5338, F1: 0.5161, Time: 0.26s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5368, F1: 0.5281, Time: 0.23s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.3333, F1: 0.2305, Time: 0.27s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6211, F1: 0.6098, Time: 0.13s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6044, F1: 0.5957, Time: 3.34s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5351, F1: 0.5157, Time: 0.47s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5420, F1: 0.5311, Time: 0.46s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2889, F1: 0.1686, Time: 0.81s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6101, F1: 0.5957, Time: 0.36s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.5656, F1: 0.5550, Time: 6.66s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5217, F1: 0.4937, Time: 0.46s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5307, F1: 0.5187, Time: 0.43s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.3667, F1: 0.3226, Time: 1.37s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6230, F1: 0.6136, Time: 0.21s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5864, F1: 0.5829, Time: 1.40s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4912, F1: 0.4435, Time: 0.05s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4597, F1: 0.4444, Time: 0.11s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1556, F1: 0.0928, Time: 0.30s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6102, F1: 0.6037, Time: 0.25s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5671, F1: 0.5627, Time: 2.61s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4409, F1: 0.3971, Time: 0.09s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4520, F1: 0.4333, Time: 0.13s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2000, F1: 0.0678, Time: 0.57s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6079, F1: 0.6002, Time: 0.30s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.5417, F1: 0.5421, Time: 3.82s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4420, F1: 0.4128, Time: 0.19s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4323, F1: 0.4251, Time: 0.10s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2222, F1: 0.1055, Time: 0.76s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.5991, F1: 0.5945, Time: 0.22s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5228, F1: 0.5244, Time: 6.39s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.3913, F1: 0.3437, Time: 0.16s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4030, F1: 0.3891, Time: 0.31s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.1222, F1: 0.0388, Time: 1.07s
+
+    >> Seed Fold Selection: 7/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6896, F1: 0.6872, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6833, F1: 0.6801, Time: 0.08s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6622, F1: 0.6585, Time: 0.91s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6607, F1: 0.6554, Time: 0.07s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6260, F1: 0.6268, Time: 0.03s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6122, F1: 0.6231, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6313, F1: 0.6276, Time: 0.13s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6339, F1: 0.6346, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.1111, F1: 0.0381, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.1111, F1: 0.0381, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6931, F1: 0.6896, Time: 0.11s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6886, F1: 0.6823, Time: 0.59s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6164, F1: 0.6261, Time: 0.03s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6349, F1: 0.6348, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.3556, F1: 0.2489, Time: 0.25s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6973, F1: 0.6941, Time: 0.27s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6937, F1: 0.6887, Time: 1.50s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6158, F1: 0.6253, Time: 0.04s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6317, F1: 0.6325, Time: 0.19s
+      -> [RNN + Jittering @ 3x] Acc: 0.2444, F1: 0.1719, Time: 0.51s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6997, F1: 0.6969, Time: 0.19s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6900, F1: 0.6848, Time: 1.62s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6168, F1: 0.6265, Time: 0.15s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6366, F1: 0.6358, Time: 0.38s
+      -> [RNN + Jittering @ 5x] Acc: 0.2222, F1: 0.1053, Time: 0.74s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.7009, F1: 0.6981, Time: 0.21s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.7017, F1: 0.6975, Time: 3.13s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6163, F1: 0.6256, Time: 0.34s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6377, F1: 0.6367, Time: 1.10s
+      -> [RNN + Jittering @ 10x] Acc: 0.4667, F1: 0.3507, Time: 1.07s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6969, F1: 0.6910, Time: 0.18s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.6874, F1: 0.6791, Time: 0.55s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6110, F1: 0.6160, Time: 0.06s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6247, F1: 0.6212, Time: 0.28s
+      -> [RNN + Scaling @ 2x] Acc: 0.1000, F1: 0.0207, Time: 0.38s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.7018, F1: 0.6993, Time: 0.13s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6744, F1: 0.6728, Time: 0.79s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.5891, F1: 0.5877, Time: 0.04s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.6098, F1: 0.6140, Time: 0.19s
+      -> [RNN + Scaling @ 3x] Acc: 0.2111, F1: 0.1710, Time: 0.26s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6778, F1: 0.6757, Time: 0.37s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6653, F1: 0.6624, Time: 1.56s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6188, F1: 0.6111, Time: 0.12s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6373, F1: 0.6381, Time: 0.27s
+      -> [RNN + Scaling @ 5x] Acc: 0.2889, F1: 0.1798, Time: 0.67s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.7087, F1: 0.7030, Time: 0.28s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6957, F1: 0.6908, Time: 3.17s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.5881, F1: 0.5831, Time: 0.14s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6306, F1: 0.6296, Time: 0.56s
+      -> [RNN + Scaling @ 10x] Acc: 0.1889, F1: 0.1188, Time: 1.49s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6904, F1: 0.6871, Time: 0.13s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6772, F1: 0.6702, Time: 0.53s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.6082, F1: 0.5974, Time: 0.03s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6139, F1: 0.6111, Time: 0.14s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.1778, F1: 0.0781, Time: 0.33s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6776, F1: 0.6746, Time: 0.32s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6684, F1: 0.6665, Time: 1.10s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5910, F1: 0.5879, Time: 0.08s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.6240, F1: 0.6190, Time: 0.21s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.3333, F1: 0.2409, Time: 0.26s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6654, F1: 0.6631, Time: 0.20s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6488, F1: 0.6454, Time: 1.50s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5926, F1: 0.5770, Time: 0.12s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.6086, F1: 0.6020, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.3000, F1: 0.1556, Time: 0.49s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6829, F1: 0.6797, Time: 0.28s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6706, F1: 0.6701, Time: 3.01s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5794, F1: 0.5643, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.6027, F1: 0.5973, Time: 0.62s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.2889, F1: 0.2169, Time: 1.03s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6806, F1: 0.6783, Time: 0.15s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.6409, F1: 0.6372, Time: 0.55s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4316, F1: 0.3926, Time: 0.02s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4806, F1: 0.4649, Time: 0.09s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1000, F1: 0.0200, Time: 0.30s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6741, F1: 0.6717, Time: 0.18s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.6201, F1: 0.6159, Time: 0.83s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4822, F1: 0.4445, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4829, F1: 0.4645, Time: 0.11s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2000, F1: 0.1202, Time: 0.33s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6723, F1: 0.6714, Time: 0.24s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.6029, F1: 0.6021, Time: 1.79s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4833, F1: 0.4513, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4824, F1: 0.4729, Time: 0.10s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2556, F1: 0.1493, Time: 0.56s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6586, F1: 0.6584, Time: 0.35s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5819, F1: 0.5784, Time: 2.90s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.4353, F1: 0.4104, Time: 0.10s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4387, F1: 0.4379, Time: 0.16s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.4222, F1: 0.3385, Time: 0.89s
+
+    >> Seed Fold Selection: 8/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.7058, F1: 0.6984, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.7036, F1: 0.6969, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6458, F1: 0.6361, Time: 0.62s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6458, F1: 0.6361, Time: 0.06s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6652, F1: 0.6527, Time: 0.02s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6590, F1: 0.6515, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6361, F1: 0.6302, Time: 0.06s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6763, F1: 0.6745, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.2222, F1: 0.1184, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.2222, F1: 0.1184, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.7199, F1: 0.7127, Time: 0.08s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6699, F1: 0.6625, Time: 1.09s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6724, F1: 0.6644, Time: 0.03s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6772, F1: 0.6753, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.2000, F1: 0.1290, Time: 0.25s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.7123, F1: 0.7059, Time: 0.08s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6809, F1: 0.6730, Time: 1.59s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6717, F1: 0.6642, Time: 0.04s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6810, F1: 0.6790, Time: 0.18s
+      -> [RNN + Jittering @ 3x] Acc: 0.2111, F1: 0.1174, Time: 0.26s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.7230, F1: 0.7166, Time: 0.11s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6884, F1: 0.6801, Time: 2.66s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6724, F1: 0.6644, Time: 0.07s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6717, F1: 0.6703, Time: 0.27s
+      -> [RNN + Jittering @ 5x] Acc: 0.2556, F1: 0.1412, Time: 0.49s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.7206, F1: 0.7142, Time: 0.14s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6908, F1: 0.6835, Time: 5.42s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6716, F1: 0.6633, Time: 0.14s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6728, F1: 0.6706, Time: 0.56s
+      -> [RNN + Jittering @ 10x] Acc: 0.2778, F1: 0.1929, Time: 0.95s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.7083, F1: 0.7033, Time: 0.08s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.6660, F1: 0.6628, Time: 1.07s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6112, F1: 0.6036, Time: 0.03s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6476, F1: 0.6446, Time: 0.14s
+      -> [RNN + Scaling @ 2x] Acc: 0.1000, F1: 0.0234, Time: 0.25s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6943, F1: 0.6840, Time: 0.09s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6756, F1: 0.6619, Time: 1.59s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6421, F1: 0.6315, Time: 0.04s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.6536, F1: 0.6485, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.2111, F1: 0.0876, Time: 0.26s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.7048, F1: 0.6984, Time: 0.11s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6760, F1: 0.6709, Time: 2.64s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6161, F1: 0.6092, Time: 0.07s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6583, F1: 0.6529, Time: 0.28s
+      -> [RNN + Scaling @ 5x] Acc: 0.1778, F1: 0.0902, Time: 0.49s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.7147, F1: 0.7075, Time: 0.15s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6880, F1: 0.6751, Time: 5.49s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6480, F1: 0.6359, Time: 0.13s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6900, F1: 0.6848, Time: 0.57s
+      -> [RNN + Scaling @ 10x] Acc: 0.4333, F1: 0.3134, Time: 0.87s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6958, F1: 0.6919, Time: 0.08s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6638, F1: 0.6618, Time: 1.08s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.5590, F1: 0.5454, Time: 0.03s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6136, F1: 0.6149, Time: 0.13s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.2889, F1: 0.1953, Time: 0.24s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6849, F1: 0.6770, Time: 0.09s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6384, F1: 0.6323, Time: 1.67s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.5524, F1: 0.5400, Time: 0.04s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.6138, F1: 0.6096, Time: 0.18s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.1889, F1: 0.1324, Time: 0.26s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6954, F1: 0.6863, Time: 0.12s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6856, F1: 0.6760, Time: 2.81s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.5546, F1: 0.5340, Time: 0.06s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.6108, F1: 0.6031, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.3000, F1: 0.1477, Time: 0.50s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.7006, F1: 0.6947, Time: 0.17s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6861, F1: 0.6752, Time: 5.98s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.5488, F1: 0.5311, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.6134, F1: 0.6079, Time: 0.49s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.2556, F1: 0.1161, Time: 0.92s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.7153, F1: 0.7071, Time: 0.09s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.6191, F1: 0.6109, Time: 1.10s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4180, F1: 0.3718, Time: 0.02s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4984, F1: 0.4915, Time: 0.07s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1444, F1: 0.0863, Time: 0.24s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6768, F1: 0.6731, Time: 0.11s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.6064, F1: 0.5947, Time: 1.63s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4349, F1: 0.3916, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4877, F1: 0.4939, Time: 0.06s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.1667, F1: 0.0655, Time: 0.26s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6692, F1: 0.6614, Time: 0.14s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.6211, F1: 0.6100, Time: 2.76s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4192, F1: 0.3630, Time: 0.05s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4690, F1: 0.4562, Time: 0.07s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2556, F1: 0.1475, Time: 0.49s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6702, F1: 0.6658, Time: 0.21s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.5948, F1: 0.5850, Time: 5.98s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.3816, F1: 0.3261, Time: 0.09s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4654, F1: 0.4545, Time: 0.12s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.2000, F1: 0.1105, Time: 0.88s
+
+    >> Seed Fold Selection: 9/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.7144, F1: 0.7106, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.7179, F1: 0.7142, Time: 0.06s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.6469, F1: 0.6425, Time: 0.61s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5946, F1: 0.5905, Time: 0.04s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6643, F1: 0.6615, Time: 0.02s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6372, F1: 0.6344, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.7062, F1: 0.6996, Time: 0.06s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.7267, F1: 0.7180, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.2889, F1: 0.1796, Time: 0.12s
+      -> [Tuned_Baseline] Acc: 0.2889, F1: 0.1796, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.7177, F1: 0.7144, Time: 0.08s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.6161, F1: 0.6136, Time: 0.89s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6370, F1: 0.6338, Time: 0.09s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.7303, F1: 0.7212, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.1556, F1: 0.0733, Time: 0.26s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.7200, F1: 0.7156, Time: 0.08s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.6364, F1: 0.6340, Time: 1.30s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6380, F1: 0.6350, Time: 0.14s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.7304, F1: 0.7220, Time: 0.19s
+      -> [RNN + Jittering @ 3x] Acc: 0.2556, F1: 0.2043, Time: 0.28s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.7170, F1: 0.7132, Time: 0.10s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.6252, F1: 0.6233, Time: 2.09s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6396, F1: 0.6367, Time: 0.23s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.7330, F1: 0.7249, Time: 0.28s
+      -> [RNN + Jittering @ 5x] Acc: 0.2667, F1: 0.1610, Time: 0.51s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.7157, F1: 0.7124, Time: 0.14s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.6459, F1: 0.6466, Time: 4.16s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6393, F1: 0.6365, Time: 0.48s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.7338, F1: 0.7264, Time: 0.57s
+      -> [RNN + Jittering @ 10x] Acc: 0.3333, F1: 0.2337, Time: 0.89s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.7068, F1: 0.7032, Time: 0.08s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.5899, F1: 0.5831, Time: 0.88s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6292, F1: 0.6261, Time: 0.08s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6692, F1: 0.6641, Time: 0.14s
+      -> [RNN + Scaling @ 2x] Acc: 0.2000, F1: 0.1200, Time: 0.24s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.7046, F1: 0.7002, Time: 0.09s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.6192, F1: 0.6161, Time: 1.27s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6287, F1: 0.6242, Time: 0.13s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.6552, F1: 0.6522, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.3222, F1: 0.2488, Time: 0.26s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.7099, F1: 0.7062, Time: 0.11s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.6462, F1: 0.6457, Time: 2.08s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6261, F1: 0.6214, Time: 0.22s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6659, F1: 0.6635, Time: 0.28s
+      -> [RNN + Scaling @ 5x] Acc: 0.2778, F1: 0.1885, Time: 0.50s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.7149, F1: 0.7126, Time: 0.15s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.6209, F1: 0.6189, Time: 4.21s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6438, F1: 0.6404, Time: 0.45s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6678, F1: 0.6647, Time: 0.57s
+      -> [RNN + Scaling @ 10x] Acc: 0.3889, F1: 0.2751, Time: 0.94s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6967, F1: 0.6917, Time: 0.08s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.6143, F1: 0.6119, Time: 0.92s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.6488, F1: 0.6482, Time: 0.09s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.6823, F1: 0.6771, Time: 0.14s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.1444, F1: 0.0820, Time: 0.25s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.7169, F1: 0.7099, Time: 0.09s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.6213, F1: 0.6217, Time: 1.29s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.6147, F1: 0.6062, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.6819, F1: 0.6764, Time: 0.19s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.1889, F1: 0.0788, Time: 0.26s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.6918, F1: 0.6868, Time: 0.12s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.6311, F1: 0.6268, Time: 2.18s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.6051, F1: 0.5999, Time: 0.22s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.6278, F1: 0.6206, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2333, F1: 0.1222, Time: 0.49s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6904, F1: 0.6851, Time: 0.17s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.6319, F1: 0.6270, Time: 4.27s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.6127, F1: 0.6076, Time: 0.44s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.6249, F1: 0.6180, Time: 0.44s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4444, F1: 0.3528, Time: 0.88s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.7143, F1: 0.7106, Time: 0.09s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5280, F1: 0.5306, Time: 0.91s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.4894, F1: 0.4572, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.5411, F1: 0.5257, Time: 0.09s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.1000, F1: 0.0186, Time: 0.24s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.7042, F1: 0.7005, Time: 0.11s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.5248, F1: 0.5219, Time: 1.29s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.4224, F1: 0.3699, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4982, F1: 0.4852, Time: 0.08s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.1889, F1: 0.0900, Time: 0.28s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.7012, F1: 0.6984, Time: 0.14s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.4847, F1: 0.4916, Time: 2.11s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4094, F1: 0.3581, Time: 0.09s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.4557, F1: 0.4536, Time: 0.10s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.2111, F1: 0.1189, Time: 0.50s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6852, F1: 0.6819, Time: 0.21s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.4696, F1: 0.4702, Time: 4.16s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.4014, F1: 0.3327, Time: 0.17s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4606, F1: 0.4465, Time: 0.21s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.4556, F1: 0.3669, Time: 0.90s
+
+    >> Seed Fold Selection: 10/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.6299, F1: 0.6287, Time: 0.42s
+      HP Tuning KNN...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6228, F1: 0.6205, Time: 0.08s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.5904, F1: 0.5877, Time: 0.63s
+      HP Tuning RandomForest...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.5477, F1: 0.5379, Time: 0.02s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.6708, F1: 0.6741, Time: 0.02s
+      HP Tuning LinearSVC...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 20
+n_resources: 40
+Fitting 2 folds for each of 20 candidates, totalling 40 fits
+----------
+iter: 1
+n_candidates: 7
+n_resources: 120
+Fitting 2 folds for each of 7 candidates, totalling 14 fits
+----------
+iter: 2
+n_candidates: 3
+n_resources: 360
+Fitting 2 folds for each of 3 candidates, totalling 6 fits
+      -> [Tuned_Baseline] Acc: 0.6414, F1: 0.6486, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.6427, F1: 0.6373, Time: 0.07s
+      HP Tuning LogisticRegression...
+n_iterations: 3
+n_required_iterations: 3
+n_possible_iterations: 4
+min_resources_: 40
+max_resources_: 2000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 12
+n_resources: 40
+Fitting 2 folds for each of 12 candidates, totalling 24 fits
+----------
+iter: 1
+n_candidates: 4
+n_resources: 120
+Fitting 2 folds for each of 4 candidates, totalling 8 fits
+----------
+iter: 2
+n_candidates: 2
+n_resources: 360
+Fitting 2 folds for each of 2 candidates, totalling 4 fits
+      -> [Tuned_Baseline] Acc: 0.6416, F1: 0.6398, Time: 0.00s
+    Evaluating Model: RNN
+      -> [Baseline] Acc: 0.2000, F1: 0.1050, Time: 0.13s
+      -> [Tuned_Baseline] Acc: 0.2000, F1: 0.1050, Time: 0.01s
+    [=== Generating 2x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 2x] Acc: 0.6299, F1: 0.6276, Time: 0.11s
+      -> [RandomForest + Jittering @ 2x] Acc: 0.5584, F1: 0.5506, Time: 0.45s
+      -> [LinearSVC + Jittering @ 2x] Acc: 0.6587, F1: 0.6666, Time: 0.03s
+      -> [LogisticRegression + Jittering @ 2x] Acc: 0.6401, F1: 0.6391, Time: 0.14s
+      -> [RNN + Jittering @ 2x] Acc: 0.3111, F1: 0.2336, Time: 0.24s
+    [=== Generating 3x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 3x] Acc: 0.6336, F1: 0.6326, Time: 0.12s
+      -> [RandomForest + Jittering @ 3x] Acc: 0.5624, F1: 0.5536, Time: 0.67s
+      -> [LinearSVC + Jittering @ 3x] Acc: 0.6556, F1: 0.6627, Time: 0.04s
+      -> [LogisticRegression + Jittering @ 3x] Acc: 0.6311, F1: 0.6319, Time: 0.18s
+      -> [RNN + Jittering @ 3x] Acc: 0.1889, F1: 0.0958, Time: 0.28s
+    [=== Generating 5x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 5x] Acc: 0.6320, F1: 0.6321, Time: 0.14s
+      -> [RandomForest + Jittering @ 5x] Acc: 0.5632, F1: 0.5529, Time: 1.11s
+      -> [LinearSVC + Jittering @ 5x] Acc: 0.6614, F1: 0.6684, Time: 0.07s
+      -> [LogisticRegression + Jittering @ 5x] Acc: 0.6307, F1: 0.6322, Time: 0.28s
+      -> [RNN + Jittering @ 5x] Acc: 0.2889, F1: 0.1541, Time: 0.51s
+    [=== Generating 10x synthetic data with Jittering ===]
+      -> [KNN + Jittering @ 10x] Acc: 0.6257, F1: 0.6278, Time: 0.18s
+      -> [RandomForest + Jittering @ 10x] Acc: 0.5676, F1: 0.5579, Time: 2.07s
+      -> [LinearSVC + Jittering @ 10x] Acc: 0.6628, F1: 0.6694, Time: 0.15s
+      -> [LogisticRegression + Jittering @ 10x] Acc: 0.6314, F1: 0.6322, Time: 0.54s
+      -> [RNN + Jittering @ 10x] Acc: 0.2111, F1: 0.1093, Time: 0.88s
+    [=== Generating 2x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 2x] Acc: 0.6214, F1: 0.6203, Time: 0.11s
+      -> [RandomForest + Scaling @ 2x] Acc: 0.5362, F1: 0.5271, Time: 0.45s
+      -> [LinearSVC + Scaling @ 2x] Acc: 0.6657, F1: 0.6688, Time: 0.03s
+      -> [LogisticRegression + Scaling @ 2x] Acc: 0.6137, F1: 0.6145, Time: 0.14s
+      -> [RNN + Scaling @ 2x] Acc: 0.2222, F1: 0.1059, Time: 0.24s
+    [=== Generating 3x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 3x] Acc: 0.6214, F1: 0.6229, Time: 0.12s
+      -> [RandomForest + Scaling @ 3x] Acc: 0.5559, F1: 0.5475, Time: 0.65s
+      -> [LinearSVC + Scaling @ 3x] Acc: 0.6560, F1: 0.6547, Time: 0.04s
+      -> [LogisticRegression + Scaling @ 3x] Acc: 0.5873, F1: 0.5830, Time: 0.18s
+      -> [RNN + Scaling @ 3x] Acc: 0.2000, F1: 0.1209, Time: 0.27s
+    [=== Generating 5x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 5x] Acc: 0.6172, F1: 0.6169, Time: 0.15s
+      -> [RandomForest + Scaling @ 5x] Acc: 0.5707, F1: 0.5647, Time: 1.05s
+      -> [LinearSVC + Scaling @ 5x] Acc: 0.6550, F1: 0.6549, Time: 0.07s
+      -> [LogisticRegression + Scaling @ 5x] Acc: 0.6011, F1: 0.5919, Time: 0.29s
+      -> [RNN + Scaling @ 5x] Acc: 0.3333, F1: 0.1963, Time: 0.51s
+    [=== Generating 10x synthetic data with Scaling ===]
+      -> [KNN + Scaling @ 10x] Acc: 0.6020, F1: 0.6040, Time: 0.20s
+      -> [RandomForest + Scaling @ 10x] Acc: 0.5550, F1: 0.5441, Time: 2.14s
+      -> [LinearSVC + Scaling @ 10x] Acc: 0.6600, F1: 0.6602, Time: 0.14s
+      -> [LogisticRegression + Scaling @ 10x] Acc: 0.6138, F1: 0.6079, Time: 0.55s
+      -> [RNN + Scaling @ 10x] Acc: 0.3444, F1: 0.2395, Time: 0.87s
+    [=== Generating 2x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 2x] Acc: 0.6228, F1: 0.6249, Time: 0.12s
+      -> [RandomForest + Magnitude_Warping @ 2x] Acc: 0.5620, F1: 0.5577, Time: 0.46s
+      -> [LinearSVC + Magnitude_Warping @ 2x] Acc: 0.6078, F1: 0.5941, Time: 0.03s
+      -> [LogisticRegression + Magnitude_Warping @ 2x] Acc: 0.5946, F1: 0.5884, Time: 0.14s
+      -> [RNN + Magnitude_Warping @ 2x] Acc: 0.2444, F1: 0.1250, Time: 0.26s
+    [=== Generating 3x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 3x] Acc: 0.6211, F1: 0.6216, Time: 0.13s
+      -> [RandomForest + Magnitude_Warping @ 3x] Acc: 0.5271, F1: 0.5239, Time: 0.66s
+      -> [LinearSVC + Magnitude_Warping @ 3x] Acc: 0.6049, F1: 0.5950, Time: 0.04s
+      -> [LogisticRegression + Magnitude_Warping @ 3x] Acc: 0.5722, F1: 0.5677, Time: 0.16s
+      -> [RNN + Magnitude_Warping @ 3x] Acc: 0.2111, F1: 0.1456, Time: 0.27s
+    [=== Generating 5x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 5x] Acc: 0.5970, F1: 0.5989, Time: 0.17s
+      -> [RandomForest + Magnitude_Warping @ 5x] Acc: 0.5513, F1: 0.5440, Time: 1.08s
+      -> [LinearSVC + Magnitude_Warping @ 5x] Acc: 0.6146, F1: 0.6046, Time: 0.06s
+      -> [LogisticRegression + Magnitude_Warping @ 5x] Acc: 0.5806, F1: 0.5778, Time: 0.28s
+      -> [RNN + Magnitude_Warping @ 5x] Acc: 0.2000, F1: 0.0701, Time: 0.50s
+    [=== Generating 10x synthetic data with Magnitude_Warping ===]
+      -> [KNN + Magnitude_Warping @ 10x] Acc: 0.6097, F1: 0.6087, Time: 0.23s
+      -> [RandomForest + Magnitude_Warping @ 10x] Acc: 0.5671, F1: 0.5618, Time: 2.17s
+      -> [LinearSVC + Magnitude_Warping @ 10x] Acc: 0.6156, F1: 0.6012, Time: 0.13s
+      -> [LogisticRegression + Magnitude_Warping @ 10x] Acc: 0.5946, F1: 0.5924, Time: 0.50s
+      -> [RNN + Magnitude_Warping @ 10x] Acc: 0.4000, F1: 0.2490, Time: 0.89s
+    [=== Generating 2x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 2x] Acc: 0.6246, F1: 0.6234, Time: 0.13s
+      -> [RandomForest + Time_Warping @ 2x] Acc: 0.5232, F1: 0.5144, Time: 0.47s
+      -> [LinearSVC + Time_Warping @ 2x] Acc: 0.5444, F1: 0.5115, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 2x] Acc: 0.4722, F1: 0.4535, Time: 0.07s
+      -> [RNN + Time_Warping @ 2x] Acc: 0.2889, F1: 0.1934, Time: 0.24s
+    [=== Generating 3x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 3x] Acc: 0.6197, F1: 0.6159, Time: 0.15s
+      -> [RandomForest + Time_Warping @ 3x] Acc: 0.4923, F1: 0.4908, Time: 0.67s
+      -> [LinearSVC + Time_Warping @ 3x] Acc: 0.5253, F1: 0.5025, Time: 0.03s
+      -> [LogisticRegression + Time_Warping @ 3x] Acc: 0.4906, F1: 0.4981, Time: 0.08s
+      -> [RNN + Time_Warping @ 3x] Acc: 0.2444, F1: 0.1923, Time: 0.26s
+    [=== Generating 5x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 5x] Acc: 0.6214, F1: 0.6191, Time: 0.20s
+      -> [RandomForest + Time_Warping @ 5x] Acc: 0.4891, F1: 0.4816, Time: 1.08s
+      -> [LinearSVC + Time_Warping @ 5x] Acc: 0.4947, F1: 0.4401, Time: 0.06s
+      -> [LogisticRegression + Time_Warping @ 5x] Acc: 0.5003, F1: 0.4863, Time: 0.10s
+      -> [RNN + Time_Warping @ 5x] Acc: 0.1889, F1: 0.0737, Time: 0.51s
+    [=== Generating 10x synthetic data with Time_Warping ===]
+      -> [KNN + Time_Warping @ 10x] Acc: 0.6179, F1: 0.6137, Time: 0.27s
+      -> [RandomForest + Time_Warping @ 10x] Acc: 0.4853, F1: 0.4817, Time: 2.13s
+      -> [LinearSVC + Time_Warping @ 10x] Acc: 0.4641, F1: 0.4134, Time: 0.10s
+      -> [LogisticRegression + Time_Warping @ 10x] Acc: 0.4227, F1: 0.4264, Time: 0.17s
+      -> [RNN + Time_Warping @ 10x] Acc: 0.3111, F1: 0.2120, Time: 0.85s
+No results to plot for Chinese_wine_F3_S2.
