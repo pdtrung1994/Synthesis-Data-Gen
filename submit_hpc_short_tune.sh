@@ -74,7 +74,7 @@ git pull origin main
 CMD="singularity exec myenvironment.simg"
 SCRIPT="Runners/runner_hpc_short_tune.py"
 
-${CMD} python Runners/runner_hpc_short_tune.py --datasets $CURRENT_DATASET --seeds $SEEDS
+${CMD} python3 Runners/runner_hpc_short_tune.py --datasets $CURRENT_DATASET --seeds $SEEDS
 
 echo "================================================="
 echo "Job completed."

@@ -21,7 +21,7 @@ if [ -z "$SLURM_JOB_ID" ]; then
     CMD="singularity exec myenvironment.simg"
     
     # We must use the container to ensure python runs correctly if it's not installed locally
-    TOTAL_TASKS=$(${CMD} python Runners/runner_full_tune.py --get_task_count | tail -n 1)
+    TOTAL_TASKS=$(${CMD} python3 Runners/runner_full_tune.py --get_task_count | tail -n 1)
     if [ -z "$TOTAL_TASKS" ] || ! [[ "$TOTAL_TASKS" =~ ^[0-9]+$ ]]; then
         echo "Error: Could not calculate task count. Output was: $TOTAL_TASKS"
         exit 1
@@ -51,7 +51,7 @@ git pull origin main
 CMD="singularity exec myenvironment.simg"
 SCRIPT="Runners/runner_full_tune.py"
 
-${CMD} python ${SCRIPT}
+${CMD} python3 ${SCRIPT}
 
 echo "================================================="
 echo "Job completed."
