@@ -4,9 +4,36 @@
 #SBATCH --error=slurm_%A_%a.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=56
-#SBATCH --time=24:00:00
+#SBATCH --time=48:00:00
 #SBATCH --partition=prod
 #SBATCH --array=0-8
+
+# ==========================================
+# TỰ ĐỘNG TẠO THƯ MỤC LOG VÀ SUBMIT
+# ==========================================
+if [ -z "$SLURM_JOB_ID" ]; then
+    mkdir -p logs
+    mkdir -p Results
+    RUN_NUM=1
+    while [ -d "logs/run_$(printf "%02d" $RUN_NUM)" ] || [ -d "Results/run_$(printf "%02d" $RUN_NUM)" ]; do
+        RUN_NUM=$((RUN_NUM + 1))
+    done
+    RUN_DIR_NAME="run_$(printf "%02d" $RUN_NUM)"
+    
+    mkdir -p "logs/$RUN_DIR_NAME"
+    mkdir -p "Results/$RUN_DIR_NAME"
+    
+    export RESULTS_DIR="$PWD/Results/$RUN_DIR_NAME"
+    
+    echo "================================================="
+    echo "Tạo thư mục lưu log: logs/$RUN_DIR_NAME"
+    echo "Tạo thư mục lưu results: Results/$RUN_DIR_NAME"
+    echo "Đang submit job..."
+    echo "================================================="
+    sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" "$0" "$@"
+    exit 0
+fi
+# ==========================================
 
 # Mảng chứa danh sách 5 databases
 DATASETS=("Plant_oil" "Brewed_vinegar" "Wine_spoilage" "Chinese_wine" "Coffee")

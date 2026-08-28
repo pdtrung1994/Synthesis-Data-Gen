@@ -312,7 +312,8 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
     
     if not results_df.empty:
         plot_df = results_df[(results_df['SeedsPerLabel'] == 20) & (results_df['ScaleFactor'] == 10)].groupby(['Method', 'Model'])['Accuracy'].mean().reset_index()
-        plot_performance_comparison(plot_df, run_id)
+        # Tạm tắt theo yêu cầu: không vẽ và lưu ảnh khi có kết quả (thường ở seed 20)
+        # plot_performance_comparison(plot_df, run_id)
 
 if __name__ == "__main__":
     import argparse
