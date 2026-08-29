@@ -3,8 +3,8 @@
 #SBATCH --output=logs/full_tune/slurm_%A_%a.out
 #SBATCH --error=logs/full_tune/slurm_%A_%a.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
-#SBATCH --time=24:00:00
+#SBATCH --cpus-per-task=20
+#SBATCH --time=72:00:00
 #SBATCH --partition=prod
 
 # ==========================================
