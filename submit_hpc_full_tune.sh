@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=synth_full_tune
-#SBATCH --output=logs/full_tune/slurm_%A_%a.out
-#SBATCH --error=logs/full_tune/slurm_%A_%a.err
+#SBATCH --output=slurm_%A_%a.out
+#SBATCH --error=slurm_%A_%a.err
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=20
 #SBATCH --time=72:00:00
@@ -11,10 +11,18 @@
 # AUTO-CREATE DIRECTORIES AND DYNAMIC SUBMISSION
 # ==========================================
 if [ -z "$SLURM_JOB_ID" ]; then
-    mkdir -p logs/full_tune
-    mkdir -p Results/full_tune
+    mkdir -p logs
+    mkdir -p Results
+    RUN_NUM=1
+    while [ -d "logs/full_tune_$(printf "%02d" $RUN_NUM)" ] || [ -d "Results/full_tune_$(printf "%02d" $RUN_NUM)" ]; do
+        RUN_NUM=$((RUN_NUM + 1))
+    done
+    RUN_DIR_NAME="full_tune_$(printf "%02d" $RUN_NUM)"
     
-    export RESULTS_DIR="$PWD/Results/full_tune"
+    mkdir -p "logs/$RUN_DIR_NAME"
+    mkdir -p "Results/$RUN_DIR_NAME"
+    
+    export RESULTS_DIR="$PWD/Results/$RUN_DIR_NAME"
     
     echo "================================================="
     echo "Calculating total tasks for Full Tune..."
@@ -31,7 +39,7 @@ if [ -z "$SLURM_JOB_ID" ]; then
     echo "Total Tasks Detected: $TOTAL_TASKS (Array: 0-$MAX_INDEX)"
     echo "================================================="
     echo "Submitting array job..."
-    sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR" --array=0-$MAX_INDEX "$0" "$@"
+    sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" --array=0-$MAX_INDEX "$0" "$@"
     exit 0
 fi
 # ==========================================
