@@ -26,10 +26,10 @@ else:
 
 def build_tasks():
     datasets = {
-        "Plant_oil": [1, 2, 5, 10],
-        "Brewed_vinegar": [1, 2, 5, 10],
-        "Wine_spoilage": [1, 2, 5, 10],
-        "Chinese_wine": [1, 2, 5, 10],
+        "Plant_oil": [1, 2, 5, 10, 20],
+        "Brewed_vinegar": [1, 2, 5, 10, 20],
+        "Wine_spoilage": [1, 2, 5, 10, 20],
+        "Chinese_wine": [1, 2, 5, 10, 20],
         "Coffee": [1, 2, 5, 10, 20]
     }
     

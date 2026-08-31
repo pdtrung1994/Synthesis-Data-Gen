@@ -63,6 +63,8 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
     run_id = dataset_name
     if target_fold != -1: run_id += f"_F{target_fold}"
     if target_seed != -1: run_id += f"_S{target_seed}"
+    if target_generator != "All": run_id += f"_{target_generator}"
+    if target_scale != -1: run_id += f"_Scale{target_scale}"
     
     # Remove old result file to prevent duplicate appending if rerun
     csv_path = os.path.join(RESULTS_DIR, f"{run_id}_results.csv")
