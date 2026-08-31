@@ -17,7 +17,7 @@ DATASETS = {
 N_SPLITS = 10  # 10-fold cross-validation (10% test per fold)
 N_SEED_SETS = 20  # Choose 1->20 measurement set per label as generation seed set
 
-N_ITER = 20  # 20-combination (Test 20 random hyperparameter combinations)
+N_ITER = 100  # 100-combination (Test 100 random hyperparameter combinations)
 
 # --- WORKSTATION SETTINGS ---
 # When running on personal i7, keep N_JOBS = 3 (default) to prevent freezing

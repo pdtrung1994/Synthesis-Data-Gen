@@ -130,42 +130,43 @@ def get_models_and_params():
     models = {
         'KNN': {
             'model': KNeighborsClassifier(),
-            'params': {
-                'n_neighbors': np.arange(3, 20),
-                'weights': ['uniform', 'distance'],
-                'metric': ['euclidean', 'manhattan', 'minkowski']
-            }
+            'params': [
+                {'n_neighbors': np.arange(1, 50, 2), 'weights': ['uniform', 'distance'], 'metric': ['euclidean', 'manhattan', 'chebyshev']},
+                {'n_neighbors': np.arange(1, 50, 2), 'weights': ['uniform', 'distance'], 'metric': ['minkowski'], 'p': [3, 4]}
+            ]
         },
         'RandomForest': {
             'model': RandomForestClassifier(random_state=RANDOM_STATE),
             'params': {
-                'n_estimators': [50, 100],
-                'max_depth': [None, 10, 20],
-                'min_samples_split': [2, 5],
-                'min_samples_leaf': [1, 2]
+                'n_estimators': [50, 100, 150],
+                'max_depth': [None, 10, 20, 30],
+                'min_samples_split': [2, 5, 10, 20],
+                'min_samples_leaf': [1, 2, 4],
+                'class_weight': [None, 'balanced']
             }
         },
         'LinearSVC': {
             'model': LinearSVC(random_state=RANDOM_STATE, max_iter=100, dual=False),
             'params': [
-                {'C': np.logspace(-3, 2, 6), 'penalty': ['l2'], 'loss': ['squared_hinge'], 'dual': [True, False]},
-                {'C': np.logspace(-3, 2, 6), 'penalty': ['l2'], 'loss': ['hinge'], 'dual': [True]},
-                {'C': np.logspace(-3, 2, 6), 'penalty': ['l1'], 'loss': ['squared_hinge'], 'dual': [False]}
+                {'C': np.logspace(-4, 3, 20), 'penalty': ['l2'], 'loss': ['squared_hinge'], 'dual': [False], 'class_weight': [None, 'balanced'], 'tol': [1e-4, 1e-3], 'fit_intercept': [True, False]},
+                {'C': np.logspace(-4, 3, 20), 'penalty': ['l1'], 'loss': ['squared_hinge'], 'dual': [False], 'class_weight': [None, 'balanced'], 'tol': [1e-4, 1e-3], 'fit_intercept': [True, False]}
             ]
         },
         'LogisticRegression': {
             'model': LogisticRegression(random_state=RANDOM_STATE, max_iter=100),
             'params': [
-                {'C': np.logspace(-3, 2, 6), 'penalty': ['l2', None], 'solver': ['lbfgs']}
+                {'C': np.logspace(-4, 3, 20), 'penalty': ['l2'], 'solver': ['lbfgs', 'sag'], 'class_weight': [None, 'balanced'], 'fit_intercept': [True, False]},
+                {'C': np.logspace(-4, 3, 20), 'penalty': ['l1', 'l2'], 'solver': ['saga'], 'class_weight': [None, 'balanced'], 'fit_intercept': [True, False]}
             ]
         },
 
         'RNN': {
             'model': RNNClassifier(),
             'params': {
-                'hidden_size': [32, 64, 128],
-                'epochs': [20, 50],
-                'lr': [1e-3, 1e-4]
+                'hidden_size': [16, 32, 64, 128],
+                'epochs': [10, 20, 30, 50],
+                'lr': [1e-4, 5e-4, 1e-3, 5e-3, 1e-2],
+                'batch_size': [32, 64, 128, 256]
             }
         }
     }
