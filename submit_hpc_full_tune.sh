@@ -3,15 +3,15 @@
 #SBATCH --output=slurm_%A_%a.out
 #SBATCH --error=slurm_%A_%a.err
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=20
-#SBATCH --time=72:00:00
+#SBATCH --cpus-per-task=12
+#SBATCH --time=144:00:00
 #SBATCH --partition=prod
 
 # ==========================================
 # AUTO-CREATE DIRECTORIES AND DYNAMIC SUBMISSION
 # ==========================================
 if [ -z "$SLURM_JOB_ID" ]; then
-    mkdir -p logs
+    mkdir -p log
     mkdir -p Results
     RUN_NUM=1
     while [ -d "logs/full_tune_$(printf "%02d" $RUN_NUM)" ] || [ -d "Results/full_tune_$(printf "%02d" $RUN_NUM)" ]; do
