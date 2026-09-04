@@ -58,9 +58,10 @@ def build_tasks():
                     'n_splits': N_SPLITS
                 })
     
-    # SORTING: Reverse the tasks so that the heaviest jobs (Seed 20, TimeVAE, etc.) 
-    # are dispatched first. This prevents SLURM from getting stuck with long jobs at the end.
+    # SORTING: First reverse to put heavy generators (TimeVAE) and last datasets at the front.
+    # Then stable sort by seed (descending) so that ALL seed 20 tasks are queued before any seed 10 tasks, etc.
     tasks.reverse()
+    tasks.sort(key=lambda x: x['seed'], reverse=True)
     return tasks
 
 def run_task(task_kwargs, pbar=None):

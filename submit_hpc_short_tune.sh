@@ -42,19 +42,19 @@ DATASETS=("Plant_oil" "Brewed_vinegar" "Wine_spoilage" "Chinese_wine" "Coffee")
 # Nếu chạy không qua sbatch (không có SLURM_ARRAY_TASK_ID), mặc định lấy index 0
 TASK_ID=${SLURM_ARRAY_TASK_ID:-0}
 
-if [ $TASK_ID -le 4 ]; then
+if [ $TASK_ID -le 3 ]; then
+    # Task 0 đến 3 tương ứng với Dataset 0 đến 3 (chạy seed 20 trước để ưu tiên)
     CURRENT_DATASET=${DATASETS[$TASK_ID]}
-    if [ "$CURRENT_DATASET" == "Coffee" ]; then
-        # Coffee khá nhỏ nên chạy gộp tất cả các seed vào chung 1 job (Task 4)
-        SEEDS="1 2 5 10 20"
-    else
-        SEEDS="1 2 5 10"
-    fi
+    SEEDS="20"
+elif [ $TASK_ID -eq 4 ]; then
+    # Coffee khá nhỏ nên chạy gộp tất cả các seed vào chung 1 job (Task 4)
+    CURRENT_DATASET="Coffee"
+    SEEDS="20 10 5 2 1"
 else
-    # Task 5 đến 8 tương ứng với Dataset 0 đến 3 (chỉ chạy seed 20)
+    # Task 5 đến 8 tương ứng với Dataset 0 đến 3 (chạy các seed còn lại)
     DATASET_INDEX=$((TASK_ID - 5))
     CURRENT_DATASET=${DATASETS[$DATASET_INDEX]}
-    SEEDS="20"
+    SEEDS="10 5 2 1"
 fi
 
 echo "================================================="
