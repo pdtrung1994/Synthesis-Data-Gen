@@ -9,19 +9,21 @@ from imblearn.over_sampling import SMOTE, ADASYN
 # 6 Synchronous Signal Augmentations
 # -------------------------------------------------------------
 
-def jitter(x, sigma=0.03):
+def jitter(x, **kwargs):
     """
     Adds random Gaussian noise (0 to 0.05) to every data point.
    
     """
+    sigma = kwargs.get('sigma', 0.03)
     noise = np.random.normal(loc=0, scale=sigma, size=x.shape)
     return x + noise
 
-def scaling(x, sigma=0.1):
+def scaling(x, **kwargs):
     """
     Multiplies the entire signal sequence by a random scalar.
    
     """
+    sigma = kwargs.get('sigma', 0.1)
     if len(x.shape) == 3:
         factor = np.random.normal(loc=1.0, scale=sigma, size=(x.shape[0], x.shape[2]))
         return np.multiply(x, factor[:, np.newaxis, :])
@@ -77,11 +79,13 @@ def scaling(x, sigma=0.1):
 #         pp += len(x_temp[0])
 #     return x_new
 
-def magnitude_warping(x, sigma=0.2, knot=4):
+def magnitude_warping(x, **kwargs):
     """
     Multiplies the signal by a smooth curve generated via Cubic Spline interpolation.
    
     """
+    sigma = kwargs.get('sigma', 0.2)
+    knot = kwargs.get('knot', 4)
     if len(x.shape) != 3:
         print("Warning: magnitude_warping expects 3D shape, returning original")
         return x
@@ -95,11 +99,13 @@ def magnitude_warping(x, sigma=0.2, knot=4):
         ret[i] = pat * warper
     return ret
 
-def time_warping(x, sigma=0.2, knot=4):
+def time_warping(x, **kwargs):
     """
     Distorts the intervals between time steps using a Cubic Spline curve.
    
     """
+    sigma = kwargs.get('sigma', 0.2)
+    knot = kwargs.get('knot', 4)
     if len(x.shape) != 3:
         print("Warning: time_warping expects 3D shape, returning original")
         return x
@@ -139,11 +145,12 @@ def time_warping(x, sigma=0.2, knot=4):
 # -------------------------------------------------------------
 # Mixup Strategy
 # -------------------------------------------------------------
-def mixup(x, y, alpha=0.2):
+def mixup(x, y, **kwargs):
     """
     Performs a weighted linear combination of two random samples belonging to the same class.
    
     """
+    alpha = kwargs.get('alpha', 0.2)
     x_new = np.zeros_like(x)
     y_new = np.copy(y)
     
@@ -161,7 +168,7 @@ def mixup(x, y, alpha=0.2):
 # -------------------------------------------------------------
 # Distance-Based Interpolations
 # -------------------------------------------------------------
-def apply_smote(X, y, scale_factor=2):
+def apply_smote(X, y, scale_factor=2, **kwargs):
     """
     Synthesizes new examples along the line segments joining k-nearest neighbors.
    
@@ -181,7 +188,11 @@ def apply_smote(X, y, scale_factor=2):
     if min_count <= 1:
         return X, y
         
-    k_neighbors = min(5, min_count - 1)
+    k_neighbors = kwargs.get('k_neighbors', min(5, min_count - 1))
+    k_neighbors = min(k_neighbors, min_count - 1)
+    if k_neighbors < 1:
+        return X, y
+        
     smote = SMOTE(sampling_strategy=sampling_strategy, k_neighbors=k_neighbors, random_state=42)
     X_resampled, y_resampled = smote.fit_resample(X_flat, y)
     
@@ -190,7 +201,7 @@ def apply_smote(X, y, scale_factor=2):
         
     return X_resampled, y_resampled
 
-def apply_adasyn(X, y, scale_factor=2):
+def apply_adasyn(X, y, scale_factor=2, **kwargs):
     """
     Similar to SMOTE, but dynamically focuses on hard-to-learn examples.
    
@@ -210,12 +221,15 @@ def apply_adasyn(X, y, scale_factor=2):
     if min_count <= 1:
         return X, y
         
-    k_neighbors = min(5, min_count - 1)
+    n_neighbors = kwargs.get('n_neighbors', min(5, min_count - 1))
+    n_neighbors = min(n_neighbors, min_count - 1)
+    if n_neighbors < 1:
+        return X, y
     
     # Do not catch or mask errors. Let it fail so the benchmark accurately 
     # reflects ADASYN's inability to handle perfectly separated classes.
     #
-    adasyn = ADASYN(sampling_strategy=sampling_strategy, n_neighbors=k_neighbors, random_state=42)
+    adasyn = ADASYN(sampling_strategy=sampling_strategy, n_neighbors=n_neighbors, random_state=42)
     X_resampled, y_resampled = adasyn.fit_resample(X_flat, y)
     
     if len(original_shape) == 3:
@@ -228,11 +242,15 @@ def apply_adasyn(X, y, scale_factor=2):
 # -------------------------------------------------------------
 _timevae_cache = {}
 
-def apply_timevae(X, y, scale_factor=2, epochs=50, batch_size=32, latent_dim=16):
+def apply_timevae(X, y, scale_factor=2, **kwargs):
     """
     Generates synthetic data using a PyTorch Variational Autoencoder (TimeVAE).
    
     """
+    epochs = kwargs.get('epochs', 50)
+    batch_size = kwargs.get('batch_size', 32)
+    latent_dim = kwargs.get('latent_dim', 16)
+    
     global _timevae_cache
     
     try:
@@ -242,6 +260,7 @@ def apply_timevae(X, y, scale_factor=2, epochs=50, batch_size=32, latent_dim=16)
         import torch.nn as nn
         # pyrefly: ignore [missing-import]
         import torch.optim as optim
+        # pyrefly: ignore [missing-import]
         from torch.utils.data import TensorDataset, DataLoader
         from config import USE_GPU
 
@@ -367,7 +386,7 @@ def apply_timevae(X, y, scale_factor=2, epochs=50, batch_size=32, latent_dim=16)
 # -------------------------------------------------------------
 # Probabilistic Methods (GMM / HMM-GMM)
 # -------------------------------------------------------------
-def apply_gmm(X, y, scale_factor=2):
+def apply_gmm(X, y, scale_factor=2, **kwargs):
     """
     Generates synthetic data using Gaussian Mixture Models.
    
@@ -393,8 +412,12 @@ def apply_gmm(X, y, scale_factor=2):
         if n_samples_to_generate <= 0:
             continue
             
-        n_components = min(max(1, len(X_c) // 2), 5)
-        gmm = GaussianMixture(n_components=n_components, covariance_type='diag', random_state=42)
+        default_components = min(max(1, len(X_c) // 2), 5)
+        n_components = kwargs.get('n_components', default_components)
+        n_components = min(n_components, max(1, len(X_c)))
+        cov_type = kwargs.get('covariance_type', 'diag')
+        
+        gmm = GaussianMixture(n_components=n_components, covariance_type=cov_type, random_state=42)
         
         try:
             # Add tiny noise to prevent degenerate mixture covariance
@@ -415,7 +438,7 @@ def apply_gmm(X, y, scale_factor=2):
         return np.vstack(X_syn_list), np.hstack(y_syn_list)
     return X, y
 
-def apply_hmm_gmm(X, y, scale_factor=2):
+def apply_hmm_gmm(X, y, scale_factor=2, **kwargs):
     """
     Generates synthetic data using HMM-GMM (hmmlearn).
    
@@ -447,14 +470,18 @@ def apply_hmm_gmm(X, y, scale_factor=2):
         #
         X_c_flat_fit = X_c_flat + np.random.normal(0, 1e-4, size=X_c_flat.shape)
         
-        n_components = max(1, min(2, len(X_c) // 2))
-        n_mix = 1 
+        default_components = max(1, min(2, len(X_c) // 2))
+        n_components = kwargs.get('n_components', default_components)
+        n_components = min(n_components, max(1, len(X_c)))
+        
+        n_mix = kwargs.get('n_mix', 1) 
+        cov_type = kwargs.get('covariance_type', 'diag')
         
         # Adding Smoothings/Pseudocounts to prevent empty transition matrices on small datasets
         model = hmm.GMMHMM(
             n_components=n_components, 
             n_mix=n_mix, 
-            covariance_type='diag', 
+            covariance_type=cov_type, 
             min_covar=1e-2, 
             transmat_prior=1.1,
             startprob_prior=1.1,
