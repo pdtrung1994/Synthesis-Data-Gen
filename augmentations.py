@@ -330,7 +330,7 @@ def apply_timevae(X, y, scale_factor=2, **kwargs):
     X_syn_list = [X]
     y_syn_list = [y]
     
-    cache_key = (X.shape, np.round(np.sum(X), 4))
+    cache_key = (X.shape, np.round(np.sum(X), 4), epochs, batch_size, latent_dim)
     if cache_key not in _timevae_cache:
         _timevae_cache[cache_key] = {}
     
