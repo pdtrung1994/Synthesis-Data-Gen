@@ -51,12 +51,13 @@ def build_tasks():
                 if generator in ['TimeVAE'] and seed <= 10:
                     continue
                 
-                tasks.append({
-                    'dataset': dataset,
-                    'seed': seed,
-                    'generator': generator,
-                    'n_splits': N_SPLITS
-                })
+                for fold in range(1, 11):
+                    tasks.append({
+                        'dataset': dataset,
+                        'seed': seed,
+                        'generator': generator,
+                        'fold': fold
+                    })
     
     # SORTING: First reverse to put heavy generators (TimeVAE) and last datasets at the front.
     # Then stable sort by seed (descending) so that ALL seed 20 tasks are queued before any seed 10 tasks, etc.
@@ -68,35 +69,33 @@ def run_task(task_kwargs, pbar=None):
     dataset = task_kwargs['dataset']
     seed = task_kwargs['seed']
     generator = task_kwargs['generator']
-    n_splits = task_kwargs.get('n_splits', 10)
+    fold = task_kwargs['fold']
     
-    log_file_name = f"{dataset}_S{seed}_{generator}_AllScales.log"
+    log_file_name = f"{dataset}_S{seed}_{generator}_F{fold}_AllScales.log"
     log_file = os.path.join(LOG_DIR, log_file_name)
     
     with open(log_file, "w", encoding="utf-8") as f:
-        f.write(f"Starting Full Tune: {dataset} - Seed {seed} - Gen {generator} - All Scales\n\n")
+        f.write(f"Starting Full Tune: {dataset} - Seed {seed} - Gen {generator} - Fold {fold} - All Scales\n\n")
         f.flush()
         
-        # Sequentially run all folds for this config
-        for fold in range(1, n_splits + 1):
-            command = [
-                sys.executable, EXPERIMENT_SCRIPT, 
-                "--dataset", dataset, 
-                "--seed", str(seed), 
-                "--fold", str(fold),
-                "--generator", generator,
-                "--scale_factor", "-1"
-            ]
-            process = subprocess.Popen(command, stdout=f, stderr=subprocess.STDOUT, text=True)
-            process.wait()
+        command = [
+            sys.executable, EXPERIMENT_SCRIPT, 
+            "--dataset", dataset, 
+            "--seed", str(seed), 
+            "--fold", str(fold),
+            "--generator", generator,
+            "--scale_factor", "-1"
+        ]
+        process = subprocess.Popen(command, stdout=f, stderr=subprocess.STDOUT, text=True)
+        process.wait()
+        
+        if process.returncode != 0:
+            return f"[!] ERROR in {dataset} (Seed {seed}, Gen {generator}, Fold {fold}) - Log: {log_file}"
             
-            if process.returncode != 0:
-                return f"[!] ERROR in {dataset} (Seed {seed}, Gen {generator}, Fold {fold}) - Log: {log_file}"
-                
         if pbar:
             pbar.update(1)
                 
-    return f"[+] COMPLETED Full Tune: {dataset} (Seed {seed}, Gen {generator})"
+    return f"[+] COMPLETED Full Tune: {dataset} (Seed {seed}, Gen {generator}, Fold {fold})"
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
