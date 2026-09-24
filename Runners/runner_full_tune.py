@@ -111,9 +111,10 @@ if __name__ == "__main__":
     os.makedirs(LOG_DIR, exist_ok=True)
     
     if IS_HPC:
-        task_id = os.environ.get("SLURM_ARRAY_TASK_ID")
-        if task_id is not None:
-            task_id = int(task_id)
+        task_id_str = os.environ.get("SLURM_ARRAY_TASK_ID")
+        task_offset = int(os.environ.get("TASK_OFFSET", "0"))
+        if task_id_str is not None:
+            task_id = int(task_id_str) + task_offset
             if task_id < len(tasks):
                 print(f"Running task {task_id} / {len(tasks)}")
                 res = run_task(tasks[task_id])

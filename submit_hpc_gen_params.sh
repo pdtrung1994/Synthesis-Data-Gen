@@ -36,10 +36,23 @@ if [ -z "$SLURM_JOB_ID" ]; then
     fi
     MAX_INDEX=$((TOTAL_TASKS - 1))
     
-    echo "Total Tasks Detected: $TOTAL_TASKS (Array: 0-$MAX_INDEX)"
+    echo "Total Tasks Detected: $TOTAL_TASKS"
     echo "================================================="
-    echo "Submitting array job..."
-    sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" --array=0-$MAX_INDEX "$0" "$@"
+    echo "Submitting array jobs in chunks of 900 to avoid MaxArraySize limits..."
+    
+    CHUNK_SIZE=900
+    for (( i=0; i<$TOTAL_TASKS; i+=$CHUNK_SIZE )); do
+        END_IDX=$((i + CHUNK_SIZE - 1))
+        if [ $END_IDX -gt $MAX_INDEX ]; then
+            END_IDX=$MAX_INDEX
+        fi
+        
+        ARRAY_START=0
+        ARRAY_END=$((END_IDX - i))
+        
+        echo "Submitting chunk offset $i (Array: 0-$ARRAY_END)"
+        sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR",TASK_OFFSET="$i" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" --array=0-$ARRAY_END "$0" "$@"
+    done
     exit 0
 fi
 # ==========================================
