@@ -161,12 +161,12 @@ def get_models_and_params():
         },
 
         'RNN': {
-            'model': RNNClassifier(),
+            'model': RNNClassifier(hidden_size=64, epochs=10, batch_size=32, lr=0.001),
             'params': {
-                'hidden_size': [16, 32, 64, 128],
-                'epochs': [10, 20, 30, 50],
-                'lr': [1e-4, 5e-4, 1e-3, 5e-3, 1e-2],
-                'batch_size': [32, 64, 128, 256]
+                'hidden_size': [64],
+                'epochs': [10],
+                'lr': [1e-3, 5e-3],
+                'batch_size': [32, 64]
             }
         }
     }
