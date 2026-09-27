@@ -26,11 +26,11 @@ else:
 
 def build_tasks():
     datasets = {
-        "Plant_oil": [1, 2, 5, 10, 20],
+        "Coffee": [1, 2, 5, 10, 20],
         "Brewed_vinegar": [1, 2, 5, 10, 20],
         "Wine_spoilage": [1, 2, 5, 10, 20],
         "Chinese_wine": [1, 2, 5, 10, 20],
-        "Coffee": [1, 2, 5, 10, 20]
+        "Plant_oil": [1, 2, 5, 10, 20]
     }
     
     generators = ['Jittering', 'Scaling', 'Magnitude_Warping', 'Time_Warping', 

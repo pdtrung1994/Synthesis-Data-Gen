@@ -27,32 +27,32 @@ np.random.seed(42)
 
 # --- Define Generation Parameter Grid ---
 GEN_PARAMS_GRID = {
-    'Jittering': [{'sigma': s} for s in [0.01, 0.03, 0.05, 0.1, 0.15]],
-    'Scaling': [{'sigma': s} for s in [0.05, 0.1, 0.2, 0.3, 0.5]],
-    'Magnitude_Warping': [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
-        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 10),
-        np.random.choice([3, 4, 5, 6, 8], 10)
+    'Jittering': [{'sigma': 0.03}] + [{'sigma': float(s)} for s in np.random.choice([0.01, 0.03, 0.05, 0.1, 0.15], 9)],
+    'Scaling': [{'sigma': 0.1}] + [{'sigma': float(s)} for s in np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9)],
+    'Magnitude_Warping': [{'sigma': 0.2, 'knot': 4}] + [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
+        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9),
+        np.random.choice([3, 4, 5, 6, 8], 9)
     )],
-    'Time_Warping': [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
-        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 10),
-        np.random.choice([3, 4, 5, 6, 8], 10)
+    'Time_Warping': [{'sigma': 0.2, 'knot': 4}] + [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
+        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9),
+        np.random.choice([3, 4, 5, 6, 8], 9)
     )],
-    'Mixup': [{'alpha': a} for a in [0.1, 0.2, 0.4, 0.6, 0.8]],
-    'SMOTE': [{'k_neighbors': k} for k in [1, 2, 3, 4, 5]],
-    'ADASYN': [{'n_neighbors': k} for k in [1, 2, 3, 4, 5]],
-    'GMM': [{'n_components': int(n), 'covariance_type': str(c)} for n, c in zip(
-        np.random.choice([1, 2, 3, 4, 5], 10),
-        np.random.choice(['full', 'tied', 'diag', 'spherical'], 10)
+    'Mixup': [{'alpha': 0.2}] + [{'alpha': float(a)} for a in np.random.choice([0.1, 0.2, 0.4, 0.6, 0.8], 9)],
+    'SMOTE': [{'k_neighbors': 5}] + [{'k_neighbors': int(k)} for k in np.random.choice([1, 2, 3, 4, 5], 9)],
+    'ADASYN': [{'n_neighbors': 5}] + [{'n_neighbors': int(k)} for k in np.random.choice([1, 2, 3, 4, 5], 9)],
+    'GMM': [{'n_components': 2, 'covariance_type': 'diag'}] + [{'n_components': int(n), 'covariance_type': str(c)} for n, c in zip(
+        np.random.choice([1, 2, 3, 4, 5], 9),
+        np.random.choice(['full', 'tied', 'diag', 'spherical'], 9)
     )],
-    'HMM_GMM': [{'n_components': int(n), 'n_mix': int(m), 'covariance_type': str(c)} for n, m, c in zip(
-        np.random.choice([1, 2, 3, 4, 5], 10),
-        np.random.choice([1, 2, 3, 4, 5], 10),
-        np.random.choice(['full', 'tied', 'diag', 'spherical'], 10)
+    'HMM_GMM': [{'n_components': 2, 'n_mix': 1, 'covariance_type': 'diag'}] + [{'n_components': int(n), 'n_mix': int(m), 'covariance_type': str(c)} for n, m, c in zip(
+        np.random.choice([1, 2, 3, 4, 5], 9),
+        np.random.choice([1, 2, 3, 4, 5], 9),
+        np.random.choice(['full', 'tied', 'diag', 'spherical'], 9)
     )],
-    'TimeVAE': [{'latent_dim': int(l), 'epochs': int(e), 'batch_size': int(b)} for l, e, b in zip(
-        np.random.choice([8, 16, 24, 32, 64], 10),
-        np.random.choice([20, 30, 40, 50, 60], 10),
-        np.random.choice([16, 32, 64, 128], 10)
+    'TimeVAE': [{'latent_dim': 16, 'epochs': 50, 'batch_size': 32}] + [{'latent_dim': int(l), 'epochs': int(e), 'batch_size': int(b)} for l, e, b in zip(
+        np.random.choice([8, 16, 24, 32, 64], 9),
+        np.random.choice([20, 30, 40, 50, 60], 9),
+        np.random.choice([16, 32, 64, 128], 9)
     )]
 }
 

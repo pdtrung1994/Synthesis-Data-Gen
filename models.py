@@ -56,6 +56,10 @@ class DeepLearningBaseClassifier:
             self.device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
         else:
             self.device = torch.device("cpu")
+            torch.set_flush_denormal(True)
+            n_threads = int(os.environ.get('N_JOBS', 1))
+            if n_threads > 1:
+                torch.set_num_threads(n_threads)
             
         X_tensor = torch.FloatTensor(X)
         y_tensor = torch.LongTensor(y_idx)
