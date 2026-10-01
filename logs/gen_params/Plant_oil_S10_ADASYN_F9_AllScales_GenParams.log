@@ -1,0 +1,2380 @@
+Starting GenParams Tune: Plant_oil - Seed 10 - Gen ADASYN - Fold 9 - All Scales
+
+
+==================================================
+Running gen-params experiment for Plant_oil
+==================================================
+
+--- Fold 9/10 ---
+
+  >> Seed sets per label: 10
+
+    >> Seed Fold Selection: 1/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9168, F1: 0.9171, Time: 0.52s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9170, F1: 0.9172, Time: 0.33s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8804, F1: 0.8794, Time: 4.13s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8818, F1: 0.8809, Time: 0.14s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7102, F1: 0.6965, Time: 0.21s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7107, F1: 0.6976, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8083, F1: 0.8054, Time: 1.62s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8424, F1: 0.8389, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 2/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9379, F1: 0.9379, Time: 0.47s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9394, F1: 0.9394, Time: 0.31s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.9000, F1: 0.8990, Time: 4.03s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8986, F1: 0.8976, Time: 0.09s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7529, F1: 0.7436, Time: 0.18s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7541, F1: 0.7454, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8244, F1: 0.8228, Time: 1.24s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8389, F1: 0.8388, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 3/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.8968, F1: 0.8925, Time: 0.48s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8950, F1: 0.8905, Time: 0.33s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8728, F1: 0.8710, Time: 3.94s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8723, F1: 0.8704, Time: 0.12s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7544, F1: 0.7487, Time: 0.18s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7514, F1: 0.7455, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8172, F1: 0.8120, Time: 2.04s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8458, F1: 0.8398, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 4/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9161, F1: 0.9149, Time: 0.65s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9187, F1: 0.9177, Time: 0.40s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8858, F1: 0.8851, Time: 5.16s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8807, F1: 0.8800, Time: 0.08s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7251, F1: 0.7079, Time: 0.19s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7241, F1: 0.7085, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8250, F1: 0.8252, Time: 1.55s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8223, F1: 0.8228, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 5/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9121, F1: 0.9121, Time: 0.56s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9114, F1: 0.9114, Time: 0.13s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8884, F1: 0.8890, Time: 4.30s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8881, F1: 0.8888, Time: 0.14s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7122, F1: 0.6978, Time: 0.20s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7122, F1: 0.6981, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8091, F1: 0.8078, Time: 2.12s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8435, F1: 0.8396, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 6/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.8938, F1: 0.8894, Time: 0.51s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8904, F1: 0.8858, Time: 0.14s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8721, F1: 0.8671, Time: 4.78s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8732, F1: 0.8681, Time: 0.13s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7107, F1: 0.6993, Time: 0.19s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7145, F1: 0.7036, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8153, F1: 0.8061, Time: 2.03s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8352, F1: 0.8296, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 7/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.8747, F1: 0.8702, Time: 0.47s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8638, F1: 0.8583, Time: 0.33s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8584, F1: 0.8509, Time: 4.23s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8598, F1: 0.8524, Time: 0.12s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7179, F1: 0.7073, Time: 0.18s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7164, F1: 0.7062, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8353, F1: 0.8308, Time: 1.92s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8305, F1: 0.8274, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 8/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9165, F1: 0.9153, Time: 0.52s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9173, F1: 0.9161, Time: 0.32s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.9101, F1: 0.9084, Time: 4.58s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9092, F1: 0.9074, Time: 0.14s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7044, F1: 0.6827, Time: 0.21s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7058, F1: 0.6845, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8066, F1: 0.8028, Time: 2.31s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7982, F1: 0.7955, Time: 0.01s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 9/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9256, F1: 0.9240, Time: 0.60s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9262, F1: 0.9248, Time: 0.34s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.9105, F1: 0.9087, Time: 4.70s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9124, F1: 0.9105, Time: 0.09s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7202, F1: 0.7099, Time: 0.18s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7174, F1: 0.7078, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8014, F1: 0.8008, Time: 2.21s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8308, F1: 0.8304, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+
+    >> Seed Fold Selection: 10/10
+    Evaluating Model: KNN
+      -> [Baseline] Acc: 0.9126, F1: 0.9114, Time: 0.51s
+      HP Tuning KNN...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.9148, F1: 0.9136, Time: 0.33s
+    Evaluating Model: RandomForest
+      -> [Baseline] Acc: 0.8705, F1: 0.8704, Time: 4.20s
+      HP Tuning RandomForest...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8761, F1: 0.8760, Time: 0.13s
+    Evaluating Model: LinearSVC
+      -> [Baseline] Acc: 0.7274, F1: 0.7136, Time: 0.20s
+      HP Tuning LinearSVC...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.7281, F1: 0.7157, Time: 0.00s
+    Evaluating Model: LogisticRegression
+      -> [Baseline] Acc: 0.8025, F1: 0.8028, Time: 2.32s
+      HP Tuning LogisticRegression...
+n_iterations: 4
+n_required_iterations: 4
+n_possible_iterations: 5
+min_resources_: 190
+max_resources_: 19000
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 50
+n_resources: 190
+Fitting 5 folds for each of 50 candidates, totalling 250 fits
+----------
+iter: 1
+n_candidates: 17
+n_resources: 570
+Fitting 5 folds for each of 17 candidates, totalling 85 fits
+----------
+iter: 2
+n_candidates: 6
+n_resources: 1710
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+----------
+iter: 3
+n_candidates: 2
+n_resources: 5130
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.8111, F1: 0.8117, Time: 0.00s
+    Evaluating Model: RNN
+      [!] Baseline failed for RNN: name 'os' is not defined
+      HP Tuning RNN...
+n_iterations: 2
+n_required_iterations: 2
+n_possible_iterations: 3
+min_resources_: 10
+max_resources_: 190
+aggressive_elimination: False
+factor: 3
+----------
+iter: 0
+n_candidates: 4
+n_resources: 10
+Fitting 5 folds for each of 4 candidates, totalling 20 fits
+      [!] HP Tuning failed, using base model: 
+All the 20 fits failed.
+It is very likely that your model is misconfigured.
+You can try to debug the error by setting error_score='raise'.
+
+Below are more details about the failures:
+--------------------------------------------------------------------------------
+20 fits failed with the following error:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
+    estimator.fit(X_train, y_train, **fit_params)
+  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
+    n_threads = int(os.environ.get('N_JOBS', 1))
+NameError: name 'os' is not defined
+
+      -> [Tuned_Baseline] Acc: 0.0526, F1: 0.0053, Time: 0.00s
+    [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 2x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 3x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 3x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 5x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 5x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 3, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 4, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 5, Params: {'n_neighbors': 2}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 6, Params: {'n_neighbors': 1}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 7, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 8, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 9, Params: {'n_neighbors': 4}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
+    [=== Generating 10x synthetic data with ADASYN (Set 10, Params: {'n_neighbors': 5}) ===]
+      [!] Failed generation with ADASYN at 10x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
