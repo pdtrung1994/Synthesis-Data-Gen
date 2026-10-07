@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom HTML Flowchart</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #d4d4d4;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .canvas {
+            position: relative;
+            width: 1200px;
+            height: 650px;
+            background-color: #141414;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(0.95);
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .box {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        /* Loops */
+        .outer-loop { border: 2px dashed #6f80a6; border-radius: 15px; z-index: 0; }
+        .middle-loop-1 { border: 2px dashed #8a7b9e; border-radius: 15px; z-index: 0; }
+        .middle-loop-2 { border: 2px dashed #9b7653; border-radius: 15px; z-index: 0; }
+        .inner-loop { border: 2px dashed #a66f80; border-radius: 15px; z-index: 0; }
+
+        .dataset {
+            background-color: #4b2344;
+            border: 2px solid #a46497;
+            border-radius: 50% / 15px;
+            color: #e2b9d9;
+            z-index: 10;
+            padding-top: 15px;
+            font-size: 15px;
+            font-weight: bold;
+            height: 75px;
+        }
+        .dataset::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            width: 100%;
+            height: 25px;
+            border: 2px solid #a46497;
+            border-radius: 50%;
+            box-sizing: content-box;
+        }
+
+        .fold-box {
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            z-index: 2;
+        }
+        .pink-box { background-color: #d1518f; color: #222; border: 1px solid #111; }
+        .green-box { background-color: #2a472a; color: #ddd; border: 1px solid #d1518f; }
+
+        .action-box {
+            background-color: #472915;
+            color: #cfd4d8;
+            border: 1px solid #9e7552;
+            border-radius: 8px;
+            z-index: 2;
+            padding: 5px;
+        }
+
+        .data-artifact {
+            position: absolute;
+            background-color: #2b394a;
+            color: #b4c6e7;
+            border: 2px solid #5778a8;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+            padding: 5px 15px;
+            box-sizing: border-box;
+            font-size: 15px;
+            font-weight: bold;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .output-box {
+            background-color: #1f2b48;
+            color: #a8bce6;
+            border: 1px solid #5778a8;
+            border-radius: 8px;
+            z-index: 2;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .label {
+            position: absolute;
+            color: #aaa;
+            font-size: 14px;
+            z-index: 5;
+        }
+
+        .label-center {
+            position: absolute;
+            transform: translateX(-50%);
+            background-color: #141414;
+            padding: 0 10px;
+            font-weight: bold;
+            font-size: 15px;
+            z-index: 5;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="canvas" style="width: 1240px;">
+        <div style="position: absolute; left: 40px; top: 0; width: 1200px; height: 100%;">
+        <!-- SVG Arrows -->
+        <svg>
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#888" />
+                </marker>
+            </defs>
+            
+            <!-- Dataset to Folds -->
+            <line x1="80" y1="152" x2="195" y2="152" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Folds (1..9) down to Data sampling -->
+            <line x1="295" y1="180" x2="295" y2="240" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Data sampling down to Data used -->
+            <line x1="295" y1="315" x2="295" y2="345" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Fold 10 (Data test) straight right then down -->
+            <polyline points="450,152 870,152 870,510" fill="none" stroke="#888" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" />
+            
+            <!-- Data used to Gen model -->
+            <line x1="385" y1="385" x2="450" y2="385" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Data used to Grid Search (Validation) -->
+            <polyline points="295,420 295,545 545,545" fill="none" stroke="#888" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" stroke-dasharray="4,4" />
+            
+            <!-- Gen model to Synthetic data -->
+            <line x1="600" y1="385" x2="650" y2="385" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Synthetic data to Grid search -->
+            <polyline points="745,415 745,455 620,455 620,510" fill="none" stroke="#888" stroke-width="2" marker-end="url(#arrow)" stroke-linejoin="round" />
+            
+            <!-- Grid search to Train classifier -->
+            <line x1="690" y1="545" x2="790" y2="545" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+            
+            <!-- Train classifier to Result -->
+            <line x1="945" y1="545" x2="1005" y2="545" stroke="#888" stroke-width="2" marker-end="url(#arrow)" />
+        </svg>
+
+        <!-- Loop Boxes -->
+        <div class="box outer-loop" style="left:115px; top:80px; width:865px; height:550px;"></div>
+        <div class="box middle-loop-1" style="left:185px; top:210px; width:790px; height:400px;"></div>
+        <div class="box middle-loop-2" style="left:430px; top:320px; width:540px; height:280px;"></div>
+        <div class="box inner-loop" style="left:530px; top:485px; width:430px; height:110px;"></div>
+
+        <!-- Loop Labels (Centered Cut-out effect) -->
+        <div class="label-center" style="left:548px; top:68px; color:#7284b5;">Outer Loop (10 times)</div>
+        <div class="label-center" style="left:580px; top:198px; color:#8a7b9e;">Middle Loop 1: Seed size variation</div>
+        <div class="label-center" style="left:700px; top:308px; color:#c79a72;">Middle Loop 2: Generation model variation</div>
+        <div class="label-center" style="left:745px; top:473px; color:#d1518f;">Inner Loop: Classifier model</div>
+
+        <!-- Nodes -->
+        <div class="box dataset" style="left:0px; width:75px; top:115px;">Dataset</div>
+        
+        <div class="box" style="border: 1px solid #555; left:200px; top:120px; width:260px; height:65px; border-radius:5px;"></div>
+        <!-- Grouping Dashed Box for 1..9 -->
+        <div class="box" style="border: 2px dashed #d1518f; left:210px; top:125px; width:170px; height:55px; border-radius:5px; z-index:1;"></div>
+        
+        <div class="box fold-box pink-box" style="left:215px; top:130px; width:30px; height:45px;">1</div>
+        <div class="box fold-box pink-box" style="left:250px; top:130px; width:30px; height:45px;">2</div>
+        <div class="box" style="left:285px; top:130px; width:40px; height:45px; color:#d1518f; font-weight:bold; font-size:24px; letter-spacing: 2px;">...</div>
+        <div class="box fold-box pink-box" style="left:330px; top:130px; width:30px; height:45px;">9</div>
+        <div class="box fold-box green-box" style="left:410px; top:130px; width:40px; height:45px;">10</div>
+
+        <div class="box action-box" style="left:205px; top:245px; width:180px; height:70px; line-height:1.2;">Data sampling<br>for generation<br><span style="font-size:13px; color:#aaa; font-weight:normal;">(10 times each<br>seed size variation)</span></div>
+
+        <div class="data-artifact" style="left:205px; top:350px; width:180px; height:70px; line-height:1.3;">Data used<br>for generation<br><span style="font-size:13px; color:#aaa; font-weight:normal; white-space:nowrap;">(Data generation seed)</span></div>
+        
+        <div class="box action-box" style="left:450px; top:355px; width:150px; height:60px; line-height:1.3;">Generation model<br><span style="font-size:13px; color:#aaa; font-weight:normal;">(different settings)</span></div>
+        
+        <div class="data-artifact" style="left:655px; top:355px; width:180px; height:60px; line-height:1.4;">Synthetic data</div>
+        
+        <div class="box action-box" style="left:550px; top:515px; width:140px; height:60px; line-height:1.4;">Grid Search<br>Hyperparameters</div>
+        
+        <div class="box action-box" style="left:795px; top:515px; width:150px; height:60px;">Classifier Models</div>
+        
+        <div class="box output-box" style="left:1010px; top:505px; width:140px; height:80px; line-height:1.4;">Results for<br>Statistical<br>Aggregation</div>
+
+        <!-- Arrow Text Labels -->
+        <div class="label-center" style="left:137px; top:132px; font-style:italic; font-weight:normal; font-size:14px; background:none; padding:0; color:#aaa;">k-fold split</div>
+        <div class="label-center" style="left:420px; top:525px; font-style:italic; background:none; padding:0;">used for validation</div>
+        <div class="label-center" style="left:660px; top:130px; font-style:italic; background:none; padding:0;">Data test (used for evaluation)</div>
+        </div>
+    </div>
+</body>
+</html>
