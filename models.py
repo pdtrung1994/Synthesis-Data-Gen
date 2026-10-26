@@ -1,3 +1,4 @@
+import os
 # pyrefly: ignore [missing-import]
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
