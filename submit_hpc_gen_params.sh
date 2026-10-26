@@ -64,10 +64,6 @@ echo "SLURM_ARRAY_JOB_ID: $SLURM_ARRAY_JOB_ID"
 echo "SLURM_ARRAY_TASK_ID: $SLURM_ARRAY_TASK_ID"
 echo "================================================="
 
-# Update the codebase before running
-echo "Pulling latest changes from git..."
-git pull origin main
-
 # Use Singularity/Apptainer container instead of conda/virtualenv
 CMD="singularity exec myenvironment.simg"
 SCRIPT="Runners/runner_gen_params.py"
