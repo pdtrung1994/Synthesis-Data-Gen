@@ -264,7 +264,7 @@ def apply_timevae(X, y, scale_factor=2, **kwargs):
         import torch.optim as optim
         # pyrefly: ignore [missing-import]
         from torch.utils.data import TensorDataset, DataLoader
-        from config import USE_GPU
+        from config import USE_GPU, RANDOM_STATE
 
         PYTORCH_AVAILABLE = True
     except ImportError:
@@ -351,6 +351,10 @@ def apply_timevae(X, y, scale_factor=2, **kwargs):
         if c in _timevae_cache[cache_key]:
             model = _timevae_cache[cache_key][c]
         else:
+            torch.manual_seed(RANDOM_STATE)
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(RANDOM_STATE)
+
             X_tensor = torch.FloatTensor(X_c)
             dataset = TensorDataset(X_tensor)
             
@@ -377,6 +381,7 @@ def apply_timevae(X, y, scale_factor=2, **kwargs):
                 
         model.eval()
         with torch.no_grad():
+            torch.manual_seed(RANDOM_STATE + int(scale_factor))
             z = torch.randn(n_samples_to_generate, latent_dim).to(device)
             generated_samples = model.decode(z).cpu().numpy()
             

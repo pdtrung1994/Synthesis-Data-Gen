@@ -65,6 +65,10 @@ class DeepLearningBaseClassifier(ClassifierMixin, BaseEstimator):
             self.device = torch.device("cpu")
             torch.set_flush_denormal(True)
             torch.set_num_threads(1)
+
+        torch.manual_seed(RANDOM_STATE)
+        if torch.cuda.is_available():
+            torch.cuda.manual_seed_all(RANDOM_STATE)
             
         X_tensor = torch.FloatTensor(X)
         y_tensor = torch.LongTensor(y_idx)

@@ -254,6 +254,7 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                     for scale_factor in scale_factors_to_run:
                         print(f"    [=== Generating {scale_factor}x synthetic data with {gen_name} ===]")
                         try:
+                            np.random.seed(RANDOM_STATE)
                             # Methods that handle scaling internally
                             if gen_name in ['SMOTE', 'ADASYN', 'GMM', 'HMM_GMM', 'TimeVAE']:
                                 X_syn, y_syn = gen_func(X_seed, y_seed, scale_factor=scale_factor)  # type: ignore
@@ -271,6 +272,14 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                             print(f"      [!] Failed generation with {gen_name} at {scale_factor}x: {e}")
                             continue
                             
+                        n_seed_seqs = len(X_seed)
+                        if len(X_syn) > n_seed_seqs and len(np.unique(y_syn[n_seed_seqs:])) >= len(np.unique(y_seed)):
+                            X_only_syn = X_syn[n_seed_seqs:]
+                            y_only_syn = y_syn[n_seed_seqs:]
+                        else:
+                            X_only_syn = X_syn
+                            y_only_syn = y_syn
+
                         # --- 4. Evaluate Synthetic dataset ---
                         for model_name, model_info in models_dict.items():
                             base_model = model_info['model']
@@ -285,18 +294,26 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                                 y_test_model = np.repeat(y_test, X_test.shape[1])
                                 
                                 if X_syn_model.shape[0] > MAX_ROWS:
-                                    np.random.seed(RANDOM_STATE)
-                                    indices = np.random.choice(X_syn_model.shape[0], MAX_ROWS, replace=False)
+                                    sub_rng = np.random.RandomState(RANDOM_STATE)
+                                    indices = sub_rng.choice(X_syn_model.shape[0], MAX_ROWS, replace=False)
                                     X_syn_model = X_syn_model[indices]
                                     y_syn_model = y_syn_model[indices]
                                 
+                                X_tune_train = X_only_syn.reshape(-1, X_only_syn.shape[2])
+                                y_tune_train = np.repeat(y_only_syn, X_only_syn.shape[1])
+                                if X_tune_train.shape[0] > MAX_ROWS:
+                                    tune_rng = np.random.RandomState(RANDOM_STATE)
+                                    tune_indices = tune_rng.choice(X_tune_train.shape[0], MAX_ROWS, replace=False)
+                                    X_tune_train = X_tune_train[tune_indices]
+                                    y_tune_train = y_tune_train[tune_indices]
+
                                 X_seed_model_val = X_seed.reshape(-1, X_seed.shape[2])
                                 y_seed_model_val = np.repeat(y_seed, X_seed.shape[1])
                                 
                                 print(f"      Full Tuning {model_name} on {gen_name} {scale_factor}x...")
                                 try:
                                     best_model, best_params = tune_hyperparameters_custom_val(
-                                        base_model, params, X_syn_model, y_syn_model, X_seed_model_val, y_seed_model_val, n_iter=N_ITER
+                                        base_model, params, X_tune_train, y_tune_train, X_seed_model_val, y_seed_model_val, n_iter=N_ITER
                                     )
                                 except Exception as e:
                                     print(f"      [!] Full Tuning failed, using base model: {e}")
@@ -311,8 +328,8 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                             # MAX_ROWS optimization already applied before tuning for scikit-learn models
                             MAX_SEQUENCES = MAX_ROWS // X_syn.shape[1] if len(X_syn.shape) == 3 and X_syn.shape[1] > 0 else MAX_ROWS
                             if is_dl_model and X_syn_model.shape[0] > MAX_SEQUENCES:
-                                np.random.seed(RANDOM_STATE)
-                                indices = np.random.choice(X_syn_model.shape[0], MAX_SEQUENCES, replace=False)
+                                dl_rng = np.random.RandomState(RANDOM_STATE)
+                                indices = dl_rng.choice(X_syn_model.shape[0], MAX_SEQUENCES, replace=False)
                                 X_syn_model = X_syn_model[indices]
                                 y_syn_model = y_syn_model[indices]
                                 
