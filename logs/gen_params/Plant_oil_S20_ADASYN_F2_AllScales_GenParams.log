@@ -11,7 +11,7 @@ Running gen-params experiment for Plant_oil
 
     >> Seed Fold Selection: 1/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9111, F1: 0.9035, Time: 0.65s
+      -> [Baseline] Acc: 0.9111, F1: 0.9035, Time: 0.66s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -40,9 +40,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9102, F1: 0.9024, Time: 0.32s
+      -> [Tuned_Baseline] Acc: 0.9102, F1: 0.9024, Time: 0.34s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9074, F1: 0.9001, Time: 8.42s
+      -> [Baseline] Acc: 0.9074, F1: 0.9001, Time: 8.59s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -73,7 +73,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.9057, F1: 0.8984, Time: 0.17s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7265, F1: 0.7067, Time: 0.43s
+      -> [Baseline] Acc: 0.7265, F1: 0.7067, Time: 0.42s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -104,7 +104,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7266, F1: 0.7068, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8104, F1: 0.8023, Time: 6.90s
+      -> [Baseline] Acc: 0.8104, F1: 0.8023, Time: 6.27s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -135,7 +135,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.8326, F1: 0.8267, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.5113, F1: 0.4127, Time: 100.12s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -149,22 +149,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.4586, F1: 0.3595, Time: 1.26s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -248,7 +238,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 2/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9538, F1: 0.9525, Time: 0.62s
+      -> [Baseline] Acc: 0.9538, F1: 0.9525, Time: 0.58s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -279,7 +269,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.9541, F1: 0.9529, Time: 0.32s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9189, F1: 0.9142, Time: 10.01s
+      -> [Baseline] Acc: 0.9189, F1: 0.9142, Time: 11.95s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -308,9 +298,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9203, F1: 0.9161, Time: 0.05s
+      -> [Tuned_Baseline] Acc: 0.9203, F1: 0.9161, Time: 0.11s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7246, F1: 0.7072, Time: 0.39s
+      -> [Baseline] Acc: 0.7246, F1: 0.7072, Time: 0.89s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -339,9 +329,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.7253, F1: 0.7082, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.7253, F1: 0.7082, Time: 0.01s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8164, F1: 0.8106, Time: 4.19s
+      -> [Baseline] Acc: 0.8164, F1: 0.8106, Time: 6.78s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -370,9 +360,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8409, F1: 0.8356, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.8409, F1: 0.8356, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4812, F1: 0.4056, Time: 127.37s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -386,22 +376,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3459, F1: 0.2566, Time: 2.46s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -485,7 +465,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 3/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9266, F1: 0.9218, Time: 0.57s
+      -> [Baseline] Acc: 0.9266, F1: 0.9218, Time: 0.70s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -514,9 +494,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9268, F1: 0.9222, Time: 0.35s
+      -> [Tuned_Baseline] Acc: 0.9268, F1: 0.9222, Time: 0.47s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9285, F1: 0.9259, Time: 9.57s
+      -> [Baseline] Acc: 0.9285, F1: 0.9259, Time: 20.94s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -545,9 +525,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9280, F1: 0.9252, Time: 0.15s
+      -> [Tuned_Baseline] Acc: 0.9280, F1: 0.9252, Time: 0.32s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7376, F1: 0.7223, Time: 0.40s
+      -> [Baseline] Acc: 0.7376, F1: 0.7223, Time: 0.53s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -578,7 +558,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7395, F1: 0.7248, Time: 0.01s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8250, F1: 0.8176, Time: 6.24s
+      -> [Baseline] Acc: 0.8250, F1: 0.8176, Time: 7.19s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -607,9 +587,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8439, F1: 0.8379, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.8439, F1: 0.8379, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4662, F1: 0.3716, Time: 158.93s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -623,22 +603,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3985, F1: 0.2969, Time: 0.02s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -722,7 +692,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 4/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9073, F1: 0.9041, Time: 0.57s
+      -> [Baseline] Acc: 0.9073, F1: 0.9041, Time: 0.65s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -751,9 +721,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9086, F1: 0.9056, Time: 0.34s
+      -> [Tuned_Baseline] Acc: 0.9086, F1: 0.9056, Time: 0.39s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.8865, F1: 0.8833, Time: 9.29s
+      -> [Baseline] Acc: 0.8865, F1: 0.8833, Time: 10.20s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -782,9 +752,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8869, F1: 0.8837, Time: 0.15s
+      -> [Tuned_Baseline] Acc: 0.8869, F1: 0.8837, Time: 0.20s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7110, F1: 0.6887, Time: 0.48s
+      -> [Baseline] Acc: 0.7110, F1: 0.6887, Time: 0.78s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -813,9 +783,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.7099, F1: 0.6880, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.7099, F1: 0.6880, Time: 0.01s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8006, F1: 0.7924, Time: 4.52s
+      -> [Baseline] Acc: 0.8006, F1: 0.7924, Time: 13.66s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -844,9 +814,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8141, F1: 0.8085, Time: 0.01s
+      -> [Tuned_Baseline] Acc: 0.8141, F1: 0.8085, Time: 0.02s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4586, F1: 0.3646, Time: 253.84s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -860,22 +830,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.6090, F1: 0.5326, Time: 1.23s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -959,7 +919,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 5/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9192, F1: 0.9076, Time: 0.56s
+      -> [Baseline] Acc: 0.9192, F1: 0.9076, Time: 0.64s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -988,9 +948,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9199, F1: 0.9093, Time: 0.40s
+      -> [Tuned_Baseline] Acc: 0.9199, F1: 0.9093, Time: 0.37s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9165, F1: 0.9071, Time: 11.19s
+      -> [Baseline] Acc: 0.9165, F1: 0.9071, Time: 17.49s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -1019,9 +979,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9178, F1: 0.9092, Time: 0.33s
+      -> [Tuned_Baseline] Acc: 0.9178, F1: 0.9092, Time: 0.16s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7548, F1: 0.7416, Time: 0.88s
+      -> [Baseline] Acc: 0.7548, F1: 0.7416, Time: 0.47s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -1052,7 +1012,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7566, F1: 0.7438, Time: 0.01s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8326, F1: 0.8227, Time: 4.99s
+      -> [Baseline] Acc: 0.8326, F1: 0.8227, Time: 12.67s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -1083,7 +1043,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.8459, F1: 0.8350, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4361, F1: 0.3116, Time: 213.99s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -1097,22 +1057,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3459, F1: 0.2132, Time: 1.23s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -1196,7 +1146,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 6/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.8902, F1: 0.8878, Time: 0.65s
+      -> [Baseline] Acc: 0.8902, F1: 0.8878, Time: 0.66s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -1227,7 +1177,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.8909, F1: 0.8880, Time: 0.39s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.8878, F1: 0.8853, Time: 9.74s
+      -> [Baseline] Acc: 0.8878, F1: 0.8853, Time: 9.87s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -1289,7 +1239,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7523, F1: 0.7410, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8166, F1: 0.8086, Time: 4.18s
+      -> [Baseline] Acc: 0.8166, F1: 0.8086, Time: 3.87s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -1318,9 +1268,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8270, F1: 0.8222, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.8270, F1: 0.8222, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.3459, F1: 0.2841, Time: 112.25s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -1334,22 +1284,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3308, F1: 0.2688, Time: 4.21s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -1433,7 +1373,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 7/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9306, F1: 0.9301, Time: 0.68s
+      -> [Baseline] Acc: 0.9306, F1: 0.9301, Time: 0.69s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -1462,9 +1402,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9300, F1: 0.9294, Time: 0.39s
+      -> [Tuned_Baseline] Acc: 0.9300, F1: 0.9294, Time: 0.47s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9208, F1: 0.9207, Time: 11.80s
+      -> [Baseline] Acc: 0.9208, F1: 0.9207, Time: 53.44s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -1493,9 +1433,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9224, F1: 0.9223, Time: 0.15s
+      -> [Tuned_Baseline] Acc: 0.9224, F1: 0.9223, Time: 0.16s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7295, F1: 0.7174, Time: 0.41s
+      -> [Baseline] Acc: 0.7295, F1: 0.7174, Time: 0.51s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -1526,7 +1466,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.6973, F1: 0.6725, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8032, F1: 0.7956, Time: 5.02s
+      -> [Baseline] Acc: 0.8032, F1: 0.7956, Time: 12.52s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -1555,9 +1495,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8387, F1: 0.8337, Time: 0.02s
+      -> [Tuned_Baseline] Acc: 0.8387, F1: 0.8337, Time: 0.03s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4887, F1: 0.3928, Time: 148.49s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -1571,22 +1511,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.4135, F1: 0.3094, Time: 2.45s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -1670,7 +1600,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 8/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9615, F1: 0.9608, Time: 0.68s
+      -> [Baseline] Acc: 0.9615, F1: 0.9608, Time: 0.69s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -1699,9 +1629,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9617, F1: 0.9610, Time: 0.38s
+      -> [Tuned_Baseline] Acc: 0.9617, F1: 0.9610, Time: 0.70s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9486, F1: 0.9480, Time: 16.81s
+      -> [Baseline] Acc: 0.9486, F1: 0.9480, Time: 11.05s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -1730,9 +1660,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9491, F1: 0.9485, Time: 0.15s
+      -> [Tuned_Baseline] Acc: 0.9491, F1: 0.9485, Time: 0.14s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7333, F1: 0.7184, Time: 0.42s
+      -> [Baseline] Acc: 0.7333, F1: 0.7184, Time: 0.41s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -1763,7 +1693,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7324, F1: 0.7177, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8235, F1: 0.8180, Time: 5.27s
+      -> [Baseline] Acc: 0.8235, F1: 0.8180, Time: 5.45s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -1794,7 +1724,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.8305, F1: 0.8249, Time: 0.00s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.5414, F1: 0.4802, Time: 290.48s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -1808,22 +1738,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3158, F1: 0.1999, Time: 1.24s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -1907,7 +1827,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 9/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9442, F1: 0.9387, Time: 0.68s
+      -> [Baseline] Acc: 0.9442, F1: 0.9387, Time: 0.75s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -1936,9 +1856,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9456, F1: 0.9406, Time: 0.37s
+      -> [Tuned_Baseline] Acc: 0.9456, F1: 0.9406, Time: 0.35s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9416, F1: 0.9371, Time: 13.49s
+      -> [Baseline] Acc: 0.9416, F1: 0.9371, Time: 8.54s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -1967,9 +1887,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9403, F1: 0.9354, Time: 0.16s
+      -> [Tuned_Baseline] Acc: 0.9403, F1: 0.9354, Time: 0.13s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7623, F1: 0.7503, Time: 0.88s
+      -> [Baseline] Acc: 0.7623, F1: 0.7503, Time: 0.36s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -2000,7 +1920,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7640, F1: 0.7525, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8403, F1: 0.8328, Time: 5.41s
+      -> [Baseline] Acc: 0.8403, F1: 0.8328, Time: 3.64s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -2029,9 +1949,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.8560, F1: 0.8506, Time: 0.00s
+      -> [Tuned_Baseline] Acc: 0.8560, F1: 0.8506, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4135, F1: 0.3203, Time: 116.58s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -2045,22 +1965,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.4511, F1: 0.3355, Time: 1.29s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
@@ -2144,7 +2054,7 @@ NameError: name 'os' is not defined
 
     >> Seed Fold Selection: 10/10
     Evaluating Model: KNN
-      -> [Baseline] Acc: 0.9662, F1: 0.9656, Time: 0.67s
+      -> [Baseline] Acc: 0.9662, F1: 0.9656, Time: 0.69s
       HP Tuning KNN...
 n_iterations: 4
 n_required_iterations: 4
@@ -2175,7 +2085,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.9627, F1: 0.9619, Time: 0.15s
     Evaluating Model: RandomForest
-      -> [Baseline] Acc: 0.9543, F1: 0.9534, Time: 15.66s
+      -> [Baseline] Acc: 0.9543, F1: 0.9534, Time: 11.65s
       HP Tuning RandomForest...
 n_iterations: 4
 n_required_iterations: 4
@@ -2204,9 +2114,9 @@ iter: 3
 n_candidates: 2
 n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
-      -> [Tuned_Baseline] Acc: 0.9556, F1: 0.9546, Time: 0.11s
+      -> [Tuned_Baseline] Acc: 0.9556, F1: 0.9546, Time: 0.09s
     Evaluating Model: LinearSVC
-      -> [Baseline] Acc: 0.7412, F1: 0.7306, Time: 0.44s
+      -> [Baseline] Acc: 0.7412, F1: 0.7306, Time: 0.39s
       HP Tuning LinearSVC...
 n_iterations: 4
 n_required_iterations: 4
@@ -2237,7 +2147,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.7427, F1: 0.7327, Time: 0.00s
     Evaluating Model: LogisticRegression
-      -> [Baseline] Acc: 0.8496, F1: 0.8474, Time: 5.41s
+      -> [Baseline] Acc: 0.8496, F1: 0.8474, Time: 4.43s
       HP Tuning LogisticRegression...
 n_iterations: 4
 n_required_iterations: 4
@@ -2268,7 +2178,7 @@ n_resources: 5130
 Fitting 5 folds for each of 2 candidates, totalling 10 fits
       -> [Tuned_Baseline] Acc: 0.8640, F1: 0.8629, Time: 0.01s
     Evaluating Model: RNN
-      [!] Baseline failed for RNN: name 'os' is not defined
+      -> [Baseline] Acc: 0.4962, F1: 0.4272, Time: 116.41s
       HP Tuning RNN...
 n_iterations: 2
 n_required_iterations: 2
@@ -2282,22 +2192,12 @@ iter: 0
 n_candidates: 4
 n_resources: 10
 Fitting 5 folds for each of 4 candidates, totalling 20 fits
-      [!] HP Tuning failed, using base model: 
-All the 20 fits failed.
-It is very likely that your model is misconfigured.
-You can try to debug the error by setting error_score='raise'.
-
-Below are more details about the failures:
---------------------------------------------------------------------------------
-20 fits failed with the following error:
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_validation.py", line 859, in _fit_and_score
-    estimator.fit(X_train, y_train, **fit_params)
-  File "/home/phantrung/Synthesis-Data-Gen/models.py", line 60, in fit
-    n_threads = int(os.environ.get('N_JOBS', 1))
-NameError: name 'os' is not defined
-
-      -> [Tuned_Baseline] Acc: 0.0602, F1: 0.0068, Time: 0.00s
+----------
+iter: 1
+n_candidates: 2
+n_resources: 30
+Fitting 5 folds for each of 2 candidates, totalling 10 fits
+      -> [Tuned_Baseline] Acc: 0.3158, F1: 0.2053, Time: 1.96s
     [=== Generating 2x synthetic data with ADASYN (Set 1, Params: {'n_neighbors': 5}) ===]
       [!] Failed generation with ADASYN at 2x: Not any neigbours belong to the majority class. This case will induce a NaN case with a division by zero. ADASYN is not suited for this specific dataset. Use SMOTE instead.
     [=== Generating 2x synthetic data with ADASYN (Set 2, Params: {'n_neighbors': 5}) ===]
