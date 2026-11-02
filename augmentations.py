@@ -281,6 +281,8 @@ def apply_timevae(X, y, scale_factor=2, **kwargs):
         device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     else:
         device = torch.device("cpu")
+        torch.set_flush_denormal(True)
+        torch.set_num_threads(1)
         
     class TimeVAE(nn.Module):
         def __init__(self, seq_len, n_features, latent_dim):

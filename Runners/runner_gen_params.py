@@ -15,11 +15,11 @@ IS_HPC = "SLURM_JOB_ID" in os.environ
 
 if IS_HPC:
     cpus = os.environ.get("SLURM_CPUS_PER_TASK", "1")
-    os.environ["OMP_NUM_THREADS"] = cpus
-    os.environ["OPENBLAS_NUM_THREADS"] = cpus
-    os.environ["MKL_NUM_THREADS"] = cpus
-    os.environ["VECLIB_MAXIMUM_THREADS"] = cpus
-    os.environ["NUMEXPR_NUM_THREADS"] = cpus
+    os.environ["OMP_NUM_THREADS"] = "1"
+    os.environ["OPENBLAS_NUM_THREADS"] = "1"
+    os.environ["MKL_NUM_THREADS"] = "1"
+    os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
+    os.environ["NUMEXPR_NUM_THREADS"] = "1"
     os.environ["N_JOBS"] = cpus 
 else:
     os.environ["N_JOBS"] = "-1"

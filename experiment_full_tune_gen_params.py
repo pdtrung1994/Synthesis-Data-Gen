@@ -1,5 +1,9 @@
 import os
 os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
+os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
 import pandas as pd
 # pyrefly: ignore [missing-import]
@@ -338,9 +342,10 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                                     best_model = sklearn.base.clone(tuned_models[model_name])
                                 
                                 # MAX_ROWS optimization already applied before tuning for scikit-learn models
-                                if is_dl_model and X_syn_model.shape[0] > MAX_ROWS:
+                                MAX_SEQUENCES = MAX_ROWS // X_syn.shape[1] if len(X_syn.shape) == 3 and X_syn.shape[1] > 0 else MAX_ROWS
+                                if is_dl_model and X_syn_model.shape[0] > MAX_SEQUENCES:
                                     np.random.seed(RANDOM_STATE)
-                                    indices = np.random.choice(X_syn_model.shape[0], MAX_ROWS, replace=False)
+                                    indices = np.random.choice(X_syn_model.shape[0], MAX_SEQUENCES, replace=False)
                                     X_syn_model = X_syn_model[indices]
                                     y_syn_model = y_syn_model[indices]
                                     

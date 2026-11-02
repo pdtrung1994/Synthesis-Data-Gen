@@ -58,9 +58,7 @@ class DeepLearningBaseClassifier:
         else:
             self.device = torch.device("cpu")
             torch.set_flush_denormal(True)
-            n_threads = int(os.environ.get('N_JOBS', 1))
-            if n_threads > 1:
-                torch.set_num_threads(n_threads)
+            torch.set_num_threads(1)
             
         X_tensor = torch.FloatTensor(X)
         y_tensor = torch.LongTensor(y_idx)
