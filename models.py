@@ -1,12 +1,19 @@
 import os
 # pyrefly: ignore [missing-import]
 import numpy as np
+from sklearn.base import BaseEstimator, ClassifierMixin, clone
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.experimental import enable_halving_search_cv  # noqa
-from sklearn.model_selection import HalvingRandomSearchCV, StratifiedGroupKFold
+from sklearn.model_selection import (
+    HalvingRandomSearchCV,
+    RandomizedSearchCV,
+    StratifiedGroupKFold,
+    StratifiedKFold,
+    PredefinedSplit,
+)
 from config import RANDOM_STATE, USE_GPU, N_JOBS
 
 try:
@@ -31,7 +38,7 @@ class PyTorchRNN(nn.Module):
         out = self.fc(out[:, -1, :])
         return out
 
-class DeepLearningBaseClassifier:
+class DeepLearningBaseClassifier(ClassifierMixin, BaseEstimator):
     """
     PyTorch RNN Classifier wrapper acting like a scikit-learn estimator
    
@@ -41,11 +48,10 @@ class DeepLearningBaseClassifier:
         self.epochs = epochs
         self.batch_size = batch_size
         self.lr = lr
-        self.classes_ = None
-        self.model = None
         
     def fit(self, X, y):
         self.classes_ = np.unique(y)
+        self.model = None
         if not PYTORCH_AVAILABLE:
             print("PyTorch not installed. Skipping training.")
             return self
@@ -89,28 +95,32 @@ class DeepLearningBaseClassifier:
         return self
         
     def predict(self, X):
-        if not PYTORCH_AVAILABLE or self.model is None or len(self.classes_) == 0:
-            return np.full(len(X), self.classes_[0] if self.classes_ is not None else 0)
+        classes_ = getattr(self, "classes_", None)
+        model = getattr(self, "model", None)
+        if not PYTORCH_AVAILABLE or model is None or classes_ is None or len(classes_) == 0:
+            return np.full(len(X), classes_[0] if (classes_ is not None and len(classes_) > 0) else 0)
             
-        self.model.eval()
+        model.eval()
         X_tensor = torch.FloatTensor(X).to(self.device)
         with torch.no_grad():
-            outputs = self.model(X_tensor)
+            outputs = model(X_tensor)
             _, predicted = torch.max(outputs.data, 1)
         
         predicted_idx = predicted.cpu().numpy()
-        return np.array([self.classes_[i] for i in predicted_idx])
+        return np.array([classes_[i] for i in predicted_idx])
     
     def predict_proba(self, X):
-        if not PYTORCH_AVAILABLE or self.model is None or len(self.classes_) == 0:
-            probas = np.zeros((len(X), len(self.classes_) if self.classes_ is not None else 1))
+        classes_ = getattr(self, "classes_", None)
+        model = getattr(self, "model", None)
+        if not PYTORCH_AVAILABLE or model is None or classes_ is None or len(classes_) == 0:
+            probas = np.zeros((len(X), len(classes_) if (classes_ is not None and len(classes_) > 0) else 1))
             probas[:, 0] = 1.0
             return probas
             
-        self.model.eval()
+        model.eval()
         X_tensor = torch.FloatTensor(X).to(self.device)
         with torch.no_grad():
-            outputs = self.model(X_tensor)
+            outputs = model(X_tensor)
             probas = torch.softmax(outputs, dim=1).cpu().numpy()
         return probas
     
@@ -175,41 +185,72 @@ def get_models_and_params():
     }
     return models
 
+def _count_param_combinations(param_dist):
+    try:
+        if isinstance(param_dist, list):
+            return int(sum([np.prod([len(v) for v in p.values()]) for p in param_dist]))
+        return int(np.prod([len(v) for v in param_dist.values()]))
+    except Exception:
+        return None
+
 def tune_hyperparameters(model, param_dist, X_train, y_train, groups=None, n_iter=100, cv=3):
     """
-    Perform HalvingRandomSearchCV to find optimal hyperparameters quickly.
+    Perform HalvingRandomSearchCV (or full Stratified RandomizedSearchCV for small grids/sequence models)
+    to find optimal hyperparameters quickly and reliably.
    
     """
+    total_combinations = _count_param_combinations(param_dist)
+    n_candidates = min(n_iter, total_combinations) if total_combinations is not None else n_iter
+
+    unique_classes, class_counts = np.unique(y_train, return_counts=True)
+    n_classes = len(unique_classes)
+    min_class_count = int(np.min(class_counts))
+
     if groups is not None:
-        cv_splitter = StratifiedGroupKFold(n_splits=cv)
+        actual_cv = cv
+        cv_splitter = StratifiedGroupKFold(n_splits=actual_cv)
     else:
-        cv_splitter = cv
-        
+        # When each class has only 1 sequence (e.g. RNN at SeedsPerLabel=1), stratified CV is impossible
+        if min_class_count < 2:
+            fitted_model = clone(model)
+            fitted_model.fit(X_train, y_train)
+            return fitted_model, fitted_model.get_params()
+
+        actual_cv = min(cv, min_class_count)
+        cv_splitter = StratifiedKFold(n_splits=actual_cv, shuffle=True, random_state=RANDOM_STATE)
+
+        # For small parameter grids (e.g. RNN with 4 combinations) or small sequence counts,
+        # evaluate on full stratified folds instead of subsampling below batch_size
+        if (total_combinations is not None and total_combinations <= 15) or len(X_train) < n_classes * actual_cv * 4:
+            search = RandomizedSearchCV(
+                estimator=model,
+                param_distributions=param_dist,
+                n_iter=n_candidates,
+                cv=cv_splitter,
+                scoring='accuracy',
+                n_jobs=N_JOBS,
+                random_state=RANDOM_STATE,
+                verbose=1
+            )
+            search.fit(X_train, y_train)
+            return search.best_estimator_, search.best_params_
+
+    # Ensure iter 0 has enough training samples per fold (>= 55) so KNN n_neighbors<=49 and group splits do not fail
+    min_for_train = int(np.ceil(55 * actual_cv / max(1, actual_cv - 1)))
+    min_res = min(len(X_train), max(n_classes * actual_cv * 2, min_for_train))
+
     search = HalvingRandomSearchCV(
         estimator=model,
         param_distributions=param_dist,
-        n_candidates=n_iter,
+        n_candidates=n_candidates,
+        min_resources=min_res,
         cv=cv_splitter,
         scoring='accuracy',
         n_jobs=N_JOBS,
         random_state=RANDOM_STATE,
         verbose=1
     )
-    
-    # Catching edge case where parameter space is smaller than n_candidates
-    #
-    import itertools
-    try:
-        if isinstance(param_dist, list):
-            total_combinations = sum([np.prod([len(v) for v in p.values()]) for p in param_dist])
-        else:
-            total_combinations = np.prod([len(v) for v in param_dist.values()])
-            
-        if total_combinations < n_iter:
-            search.n_candidates = int(total_combinations)
-    except:
-        pass # In case of continuous distributions
-        
+
     if groups is not None:
         search.fit(X_train, y_train, groups=groups)
     else:
@@ -220,8 +261,6 @@ def tune_hyperparameters_custom_val(model, param_dist, X_train, y_train, X_val, 
     """
     Perform HalvingRandomSearchCV with a PredefinedSplit to strictly train on X_train and validate on X_val.
     """
-    from sklearn.model_selection import PredefinedSplit
-    
     # Combine data
     X_combined = np.vstack((X_train, X_val))
     y_combined = np.hstack((y_train, y_val))
@@ -233,28 +272,35 @@ def tune_hyperparameters_custom_val(model, param_dist, X_train, y_train, X_val, 
     ])
     
     ps = PredefinedSplit(test_fold)
+
+    total_combinations = _count_param_combinations(param_dist)
+    n_candidates = min(n_iter, total_combinations) if total_combinations is not None else n_iter
+
+    n_total = len(X_combined)
+    n_train = len(X_train)
+    n_val = len(X_val)
+    n_classes = len(np.unique(y_combined))
+
+    # Guarantee iter 0 subsamples enough rows to always populate validation (test_fold == 0)
+    # across all classes AND provide >= 65 training samples so KNN (n_neighbors <= 49) never fails
+    min_for_val = int(np.ceil(max(30, n_classes * 3) * n_total / max(1, n_val)))
+    min_for_train = int(np.ceil(65 * n_total / max(1, n_train)))
+    min_res = min(n_total, max(n_classes * 2, min_for_val, min_for_train))
     
+    # refit=False avoids a redundant full fit on (X_train + X_val); caller fits strictly on X_train
     search = HalvingRandomSearchCV(
         estimator=model,
         param_distributions=param_dist,
-        n_candidates=n_iter,
+        n_candidates=n_candidates,
+        min_resources=min_res,
         cv=ps,
         scoring='accuracy',
         n_jobs=N_JOBS,
         random_state=RANDOM_STATE,
+        refit=False,
         verbose=1
     )
-    
-    try:
-        if isinstance(param_dist, list):
-            total_combinations = sum([np.prod([len(v) for v in p.values()]) for p in param_dist])
-        else:
-            total_combinations = np.prod([len(v) for v in param_dist.values()])
-            
-        if total_combinations < n_iter:
-            search.n_candidates = int(total_combinations)
-    except:
-        pass
         
     search.fit(X_combined, y_combined)
-    return search.best_estimator_, search.best_params_
+    best_estimator = clone(model).set_params(**search.best_params_)
+    return best_estimator, search.best_params_

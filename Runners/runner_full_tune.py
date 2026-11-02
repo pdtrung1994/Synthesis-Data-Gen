@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from config import N_SPLITS
 
 EXPERIMENT_SCRIPT = os.path.join(os.path.dirname(__file__), '..', 'experiment_full_tune.py')
-LOG_DIR = os.path.join(os.path.dirname(__file__), '..', 'logs', 'full_tune')
+LOG_DIR = os.environ.get('LOG_DIR', os.path.join(os.path.dirname(__file__), '..', 'logs', 'full_tune'))
 
 IS_HPC = "SLURM_JOB_ID" in os.environ
 

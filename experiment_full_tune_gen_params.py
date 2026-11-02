@@ -5,12 +5,14 @@ os.environ["MKL_NUM_THREADS"] = "1"
 os.environ["VECLIB_MAXIMUM_THREADS"] = "1"
 os.environ["NUMEXPR_NUM_THREADS"] = "1"
 
+import itertools
 import pandas as pd
 # pyrefly: ignore [missing-import]
 import numpy as np
 import traceback
 import warnings
 import time
+from sklearn.base import clone
 from sklearn.exceptions import ConvergenceWarning, FitFailedWarning
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.preprocessing import StandardScaler
@@ -26,38 +28,63 @@ from models import get_models_and_params, tune_hyperparameters, tune_hyperparame
 import augmentations
 from utils import plot_performance_comparison, save_results_table, append_result_to_csv
 
-# Ensure reproducibility for random search combinations
-np.random.seed(42)
+def _sample_unique_param_sets(default_params, param_space, n_total, rng):
+    """
+    Build up to n_total unique parameter dicts starting with default_params,
+    sampling the remaining combinations without replacement.
+    """
+    keys = list(param_space.keys())
+    candidates = []
+    for values in itertools.product(*(param_space[k] for k in keys)):
+        combo = dict(zip(keys, values))
+        if combo != default_params:
+            candidates.append(combo)
+    n_extra = min(max(0, n_total - 1), len(candidates))
+    chosen_idx = rng.choice(len(candidates), size=n_extra, replace=False)
+    return [default_params] + [candidates[int(i)] for i in chosen_idx]
+
+# Dedicated RNG so parameter sets are 100% deterministic across all tasks
+_grid_rng = np.random.RandomState(42)
 
 # --- Define Generation Parameter Grid ---
+# 1-parameter methods: evaluate all 5 distinct parameter values (Set 1 = default)
+# Multi-parameter (>=2 params) methods: evaluate 10 unique parameter sets (Set 1 = default + 9 random unique sets)
 GEN_PARAMS_GRID = {
-    'Jittering': [{'sigma': 0.03}] + [{'sigma': float(s)} for s in np.random.choice([0.01, 0.03, 0.05, 0.1, 0.15], 9)],
-    'Scaling': [{'sigma': 0.1}] + [{'sigma': float(s)} for s in np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9)],
-    'Magnitude_Warping': [{'sigma': 0.2, 'knot': 4}] + [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
-        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9),
-        np.random.choice([3, 4, 5, 6, 8], 9)
-    )],
-    'Time_Warping': [{'sigma': 0.2, 'knot': 4}] + [{'sigma': float(s), 'knot': int(k)} for s, k in zip(
-        np.random.choice([0.05, 0.1, 0.2, 0.3, 0.5], 9),
-        np.random.choice([3, 4, 5, 6, 8], 9)
-    )],
-    'Mixup': [{'alpha': 0.2}] + [{'alpha': float(a)} for a in np.random.choice([0.1, 0.2, 0.4, 0.6, 0.8], 9)],
-    'SMOTE': [{'k_neighbors': 5}] + [{'k_neighbors': int(k)} for k in np.random.choice([1, 2, 3, 4, 5], 9)],
-    'ADASYN': [{'n_neighbors': 5}] + [{'n_neighbors': int(k)} for k in np.random.choice([1, 2, 3, 4, 5], 9)],
-    'GMM': [{'n_components': 2, 'covariance_type': 'diag'}] + [{'n_components': int(n), 'covariance_type': str(c)} for n, c in zip(
-        np.random.choice([1, 2, 3, 4, 5], 9),
-        np.random.choice(['full', 'tied', 'diag', 'spherical'], 9)
-    )],
-    'HMM_GMM': [{'n_components': 2, 'n_mix': 1, 'covariance_type': 'diag'}] + [{'n_components': int(n), 'n_mix': int(m), 'covariance_type': str(c)} for n, m, c in zip(
-        np.random.choice([1, 2, 3, 4, 5], 9),
-        np.random.choice([1, 2, 3, 4, 5], 9),
-        np.random.choice(['full', 'tied', 'diag', 'spherical'], 9)
-    )],
-    'TimeVAE': [{'latent_dim': 16, 'epochs': 50, 'batch_size': 32}] + [{'latent_dim': int(l), 'epochs': int(e), 'batch_size': int(b)} for l, e, b in zip(
-        np.random.choice([8, 16, 24, 32, 64], 9),
-        np.random.choice([20, 30, 40, 50, 60], 9),
-        np.random.choice([16, 32, 64, 128], 9)
-    )]
+    'Jittering': [{'sigma': float(s)} for s in [0.03, 0.01, 0.05, 0.1, 0.15]],
+    'Scaling': [{'sigma': float(s)} for s in [0.1, 0.05, 0.2, 0.3, 0.5]],
+    'Magnitude_Warping': _sample_unique_param_sets(
+        {'sigma': 0.2, 'knot': 4},
+        {'sigma': [0.05, 0.1, 0.2, 0.3, 0.5], 'knot': [3, 4, 5, 6, 8]},
+        n_total=10,
+        rng=_grid_rng
+    ),
+    'Time_Warping': _sample_unique_param_sets(
+        {'sigma': 0.2, 'knot': 4},
+        {'sigma': [0.05, 0.1, 0.2, 0.3, 0.5], 'knot': [3, 4, 5, 6, 8]},
+        n_total=10,
+        rng=_grid_rng
+    ),
+    'Mixup': [{'alpha': float(a)} for a in [0.2, 0.1, 0.4, 0.6, 0.8]],
+    'SMOTE': [{'k_neighbors': int(k)} for k in [5, 1, 2, 3, 4]],
+    'ADASYN': [{'n_neighbors': int(k)} for k in [5, 1, 2, 3, 4]],
+    'GMM': _sample_unique_param_sets(
+        {'n_components': 2, 'covariance_type': 'diag'},
+        {'n_components': [1, 2, 3, 4, 5], 'covariance_type': ['full', 'tied', 'diag', 'spherical']},
+        n_total=10,
+        rng=_grid_rng
+    ),
+    'HMM_GMM': _sample_unique_param_sets(
+        {'n_components': 2, 'n_mix': 1, 'covariance_type': 'diag'},
+        {'n_components': [1, 2, 3, 4, 5], 'n_mix': [1, 2, 3, 4, 5], 'covariance_type': ['full', 'tied', 'diag', 'spherical']},
+        n_total=10,
+        rng=_grid_rng
+    ),
+    'TimeVAE': _sample_unique_param_sets(
+        {'latent_dim': 16, 'epochs': 50, 'batch_size': 32},
+        {'latent_dim': [8, 16, 24, 32, 64], 'epochs': [20, 30, 40, 50, 60], 'batch_size': [16, 32, 64, 128]},
+        n_total=10,
+        rng=_grid_rng
+    )
 }
 
 # Reset seed
@@ -145,6 +172,9 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                 
             print(f"\n  >> Seed sets per label: {n_seeds}")
             for seed_selection_idx in range(1, target_selections + 1):
+                # Free cached TimeVAE models from previous seed selections to keep RAM bounded
+                augmentations._timevae_cache.clear()
+
                 print(f"\n    >> Seed Fold Selection: {seed_selection_idx}/10")
                 seed_indices = get_generation_seed_sets(df, full_train_idx, num_sets=n_seeds, random_seed_offset=seed_selection_idx)
                 seed_df = df.iloc[seed_indices]
@@ -281,7 +311,7 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                 
                     scale_factors_to_run = [2, 3, 5, 10] if target_scale == -1 else [target_scale]
                     for scale_factor in scale_factors_to_run:
-                        # NEW: Iterate over parameter sets
+                        # Iterate over parameter sets (5 sets for 1-param generators, 10 unique sets for >=2-param generators)
                         param_sets = GEN_PARAMS_GRID.get(gen_name, [{}])
                         for param_idx, kwargs in enumerate(param_sets):
                             print(f"    [=== Generating {scale_factor}x synthetic data with {gen_name} (Set {param_idx + 1}, Params: {kwargs}) ===]")
@@ -330,16 +360,16 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                                             base_model, params, X_syn_model, y_syn_model, X_seed_model_val, y_seed_model_val, n_iter=N_ITER
                                         )
                                     except Exception as e:
-                                        best_model = base_model
+                                        print(f"      [!] Custom Val HP Tuning failed for {model_name}, using base model: {e}")
+                                        best_model = clone(base_model)
                                 else:
                                     X_syn_model = X_syn
                                     y_syn_model = y_syn
                                     X_test_model = X_test
                                     y_test_model = y_test
                                     
-                                    import sklearn
                                     # Clone the baseline-tuned model to reset its weights
-                                    best_model = sklearn.base.clone(tuned_models[model_name])
+                                    best_model = clone(tuned_models[model_name])
                                 
                                 # MAX_ROWS optimization already applied before tuning for scikit-learn models
                                 MAX_SEQUENCES = MAX_ROWS // X_syn.shape[1] if len(X_syn.shape) == 3 and X_syn.shape[1] > 0 else MAX_ROWS

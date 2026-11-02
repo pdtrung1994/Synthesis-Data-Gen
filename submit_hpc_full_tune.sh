@@ -10,8 +10,12 @@
 # ==========================================
 # AUTO-CREATE DIRECTORIES AND DYNAMIC SUBMISSION
 # ==========================================
-if [ -z "$SLURM_JOB_ID" ]; then
-    mkdir -p log
+if [ -z "$SLURM_ARRAY_TASK_ID" ]; then
+    if [ -n "$SLURM_JOB_ID" ]; then
+        echo "[!] Detected non-array SLURM allocation (Job $SLURM_JOB_ID)."
+        echo "[!] Tip: run 'bash submit_hpc_full_tune.sh' directly on the login node. Attempting array submission now..."
+    fi
+    mkdir -p logs
     mkdir -p Results
     RUN_NUM=1
     while [ -d "logs/full_tune_$(printf "%02d" $RUN_NUM)" ] || [ -d "Results/full_tune_$(printf "%02d" $RUN_NUM)" ]; do
@@ -23,8 +27,11 @@ if [ -z "$SLURM_JOB_ID" ]; then
     mkdir -p "Results/$RUN_DIR_NAME"
     
     export RESULTS_DIR="$PWD/Results/$RUN_DIR_NAME"
+    export LOG_DIR="$PWD/logs/$RUN_DIR_NAME"
     
     echo "================================================="
+    echo "Results directory: $RESULTS_DIR"
+    echo "Logs directory:    $LOG_DIR"
     echo "Calculating total tasks for Full Tune..."
     CMD="singularity exec myenvironment.simg"
     
@@ -51,7 +58,10 @@ if [ -z "$SLURM_JOB_ID" ]; then
         ARRAY_END=$((END_IDX - i))
         
         echo "Submitting chunk offset $i (Array: 0-$ARRAY_END)"
-        sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR",TASK_OFFSET="$i" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" --array=0-$ARRAY_END "$0" "$@"
+        if ! sbatch --export=ALL,RESULTS_DIR="$RESULTS_DIR",LOG_DIR="$LOG_DIR",TASK_OFFSET="$i" --output="logs/$RUN_DIR_NAME/slurm_%A_%a.out" --error="logs/$RUN_DIR_NAME/slurm_%A_%a.err" --array=0-$ARRAY_END "$0" "$@"; then
+            echo "Error: sbatch submission failed. Please run 'bash submit_hpc_full_tune.sh' from the login node."
+            exit 1
+        fi
     done
     exit 0
 fi
@@ -63,10 +73,6 @@ echo "CPUs allocated: $SLURM_CPUS_PER_TASK"
 echo "SLURM_ARRAY_JOB_ID: $SLURM_ARRAY_JOB_ID"
 echo "SLURM_ARRAY_TASK_ID: $SLURM_ARRAY_TASK_ID"
 echo "================================================="
-
-# Update the codebase before running
-echo "Pulling latest changes from git..."
-git pull origin main
 
 # Use Singularity/Apptainer container instead of conda/virtualenv
 CMD="singularity exec myenvironment.simg"

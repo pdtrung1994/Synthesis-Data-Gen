@@ -11,6 +11,7 @@ import numpy as np
 import traceback
 import warnings
 import time
+from sklearn.base import clone
 from sklearn.exceptions import ConvergenceWarning, FitFailedWarning
 from sklearn.metrics import accuracy_score, f1_score
 from sklearn.preprocessing import StandardScaler
@@ -108,6 +109,7 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                 
             print(f"\n  >> Seed sets per label: {n_seeds}")
             for seed_selection_idx in range(1, target_selections + 1):
+                augmentations._timevae_cache.clear()
                 print(f"\n    >> Seed Fold Selection: {seed_selection_idx}/10")
                 seed_indices = get_generation_seed_sets(df, full_train_idx, num_sets=n_seeds, random_seed_offset=seed_selection_idx)
                 seed_df = df.iloc[seed_indices]
@@ -298,7 +300,7 @@ def run_experiment(dataset_name, target_fold=-1, target_seed=-1, target_selectio
                                     )
                                 except Exception as e:
                                     print(f"      [!] Full Tuning failed, using base model: {e}")
-                                    best_model = base_model
+                                    best_model = clone(base_model)
                             else:
                                 X_syn_model = X_syn
                                 y_syn_model = y_syn
